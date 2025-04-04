@@ -1,0 +1,100 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Form Container */
+.form-container {
+    background-color: white;
+    padding: 25px;
+    width: 350px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+/* Title and Subtitle */
+h1 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+p {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+/* Labels and Inputs */
+label {
+    font-size: 14px;
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Password Group */
+.password-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Forgot Password Link */
+.forgot-password {
+    font-size: 12px;
+    color: #666;
+    text-decoration: none;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+/* Sign-In Button */
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #333;
+}
+
+/* Register Link */
+.register-link {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.register-link a {
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+}

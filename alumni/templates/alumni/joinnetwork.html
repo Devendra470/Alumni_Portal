@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create an Account</title>
+    <link rel="stylesheet" href="{% static 'joinnetwork.css' %}">
+</head>
+<body>
+
+    <div class="form-container">
+        <h1>Create an Account</h1>
+        <p>Join our community to connect with alumni, students, and faculty.</p>
+        
+        <form action="{% url 'create_account' %}" method="post">
+            {% csrf_token %}
+            <label>I am a:</label>
+            <div class="radio-group">
+                <label><input type="radio" name="role" value="Alumni" checked> Alumni</label>
+                <label><input type="radio" name="role" value="Student"> Student</label>
+                <label><input type="radio" name="role" value="Faculty"> Faculty</label>
+            </div>
+
+            <div class="input-group">
+                <div>
+                    <label>First Name</label>
+                    <input type="text" name="first_name" required>
+                </div>
+                <div>
+                    <label>Last Name</label>
+                    <input type="text" name="last_name" required>
+                </div>
+            </div>
+
+            <label>Email</label>
+            <input type="email" name="email" required>
+
+            <label>Password</label>
+            <input type="password" name="password" required>
+
+            <div class="input-group">
+                <div>
+                    <label>Graduation Year</label>
+                    <input type="text" name="grad_year">
+                </div>
+                <div>
+                    <label>Degree</label>
+                    <input type="text" name="degree">
+                </div>
+            </div>
+
+            <button type="submit">Sign Up</button>
+        </form>
+    </div>
+
+</body>
+</html>
