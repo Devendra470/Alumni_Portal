@@ -11,7 +11,7 @@ def signup(request):
 # Displaying SIgnin Page
 def signin(request):
     return render(request,'alumni/signin.html')
-# Module to Create an Account 
+# Module to Signup Data 
 def create_account(request):
     role=request.POST.get('role')
     firstname=request.POST.get('first_name')
@@ -22,3 +22,9 @@ def create_account(request):
     degree=request.POST.get('degree','default')
     params={'role':role,'firstname':firstname,'lastname':lastname,'email':email,'password':password,'gradyear':gradyear,'degree':degree}
     return render(request,'alumni/data.html',params)
+# Module for Signin Data
+def signindata(request):
+    email=request.POST.get('email')
+    password=request.POST.get('password')
+    params={'email':email,'password':password}
+    return render(request,'alumni/signindata.html',params)
