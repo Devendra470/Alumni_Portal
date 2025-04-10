@@ -10,12 +10,18 @@
 </head>
 
 <body>
-
     <div class="form-container">
+        <div style="background-color: lightgreen; text-align: center; border-radius: 50px 50px ;">
+            {% if created %}
+            <div class="alert alert-success">
+                Account created successfully! Please log in.
+            </div>
+            {% endif %}
+        </div>
         <h1>Sign In</h1>
         <p>Enter your credentials to access your account</p>
 
-        <form method="post" action="{% url 'signindata' %}">
+        <form method="post" action="{% url 'signindata' %}" autocomplete="off">
             {% csrf_token %}
             <label>Email</label>
             <input type="email" name="email" required>

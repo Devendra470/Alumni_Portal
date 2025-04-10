@@ -36,22 +36,20 @@ def create_account(request):
         degree=None
         
     # Checking for role to fetch database
-    msg=''' Account Created Succesfully
-    <a href="signin">Login In</a>
-    '''
+    created=False
     if(role=='Alumni'):
         if Alumni.objects.filter(email=email).exists():
             return HttpResponse("Email Id already exists")
         Alumni.objects.create(role=role,first_name=firstname,last_name=lastname,email=email,password=hashed_password,graduation_year=gradyear,degree=degree)
-        #To be changed
-        return HttpResponse(msg)
+        created=True
+        return render(request,'alumni/signin.html',{'created':created})
     
     elif(role=='Student'):
         if Student.objects.filter(email=email).exists():
             return HttpResponse("Email Id already exists")
         Student.objects.create(role=role,first_name=firstname,last_name=lastname,email=email,password=hashed_password,graduation_year=gradyear,degree=degree)
-        #To be changed
-        return HttpResponse(msg)
+        created=True
+        return render(request,'alumni/signin.html',{'created':created})
 
 # Module to Sign in
 def signindata(request):
