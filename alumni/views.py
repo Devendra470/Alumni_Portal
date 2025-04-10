@@ -36,19 +36,22 @@ def create_account(request):
         degree=None
         
     # Checking for role to fetch database
+    msg=''' Account Created Succesfully
+    <a href="signin">Login In</a>
+    '''
     if(role=='Alumni'):
         if Alumni.objects.filter(email=email).exists():
             return HttpResponse("Email Id already exists")
         Alumni.objects.create(role=role,first_name=firstname,last_name=lastname,email=email,password=hashed_password,graduation_year=gradyear,degree=degree)
         #To be changed
-        return HttpResponse("Alumni Account Created Succesfully")
+        return HttpResponse(msg)
     
     elif(role=='Student'):
         if Student.objects.filter(email=email).exists():
             return HttpResponse("Email Id already exists")
         Student.objects.create(role=role,first_name=firstname,last_name=lastname,email=email,password=hashed_password,graduation_year=gradyear,degree=degree)
         #To be changed
-        return HttpResponse("Student Account Created Succesfully")
+        return HttpResponse(msg)
 
 # Module to Sign in
 def signindata(request):
@@ -62,14 +65,14 @@ def signindata(request):
     except Alumni.DoesNotExist:
         try:
             user=Student.objects.get(email=email)
+
         except Student.DoesNotExist:
             return HttpResponse("Invalid Email ID or Password") #If not Found in both functon returns
-    
+    firstname=user.first_name
     # If function does not return then email is found now check for password
-
     if(check_password(password,user.password)):
         #To be changed
-        return HttpResponse(f"Welcome {user.first_name} Your are Logged In")
+        return render(request,'alumni/dashboard.html',{'name':firstname})
     else:
         #To be changed
         return HttpResponse("Invalid Email or Password") 

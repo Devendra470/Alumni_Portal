@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title></title>
+  <style>
+body {
+background-image: url(https://www.targetadmission.com/img/colleges/newc/23136-536284.jpg);
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+font-family: Arial, sans-serif;
+margin: 0;
+padding: 0;
+background-color: #f9f9f9;
+text-align: center;
+overflow: auto;
+}
+
+header {
+background-color: #f9f9f9;
+  text-align: center;
+  padding: 12px;
+  border-radius: 15px;
+}
+
+header h1 {
+  color: black
+}
+nav {
+  margin-top: 10px;
+}
+
+nav a {
+  margin: 0 15px;
+  color: #666;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover{
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Section Styling */
+.community-section {
+    padding: 70px 20px;
+}
+
+.community-section h1 {
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.community-section p {
+    color: black;
+    font-weight: 600;
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+/* Card Container */
+.cards-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+/* Individual Card */
+.card {
+    background-color: white;
+    padding: 25px;
+    width: 200px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Icons */
+.card i {
+    font-size: 40px;
+    color: #000;
+    margin-bottom: 10px;
+}
+
+/* Card Text */
+.card h2 {
+    font-size: 22px;
+    margin: 10px 0;
+}
+
+.card p {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+/* Card Links */
+.card a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #000;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.card a:hover {
+    text-decoration: underline;
+}
+  </style>
+
+<body>
+  <header>
+    <h1>Welcome {{name}}</h1>
+    <nav>
+      <a href="#">Dashboard</a>
+      <a href="#">My Profile</a>
+      <a href="#">Events</a>
+      <a href="#">Directory</a>
+      <a href="#">Logout</a>
+    </nav>
+  </header>
+
+  <section class="community-section">
+    <h1>Explore Our Community</h1>
+    <p>Discover the diverse sections of our portal, each designed to connect different members of our college community.</p>
+    
+    <div class="cards-container">
+        <div class="card">
+            <i class="fas fa-graduation-cap"></i>
+            <h2>Alumni</h2>
+            <p>Connect with graduates from all years and see where their journeys have taken them.</p>
+            <a href="#">View Alumni →</a>
+        </div>
+
+        <div class="card">
+            <i class="fas fa-user-graduate"></i>
+            <h2>Students</h2>
+            <p>Meet current students, learn about their projects, and offer mentorship opportunities.</p>
+            <a href="#">View Students →</a>
+        </div>
+
+        <div class="card">
+            <i class="fas fa-user-tie"></i>
+            <h2>Faculty</h2>
+            <p>Discover our esteemed faculty members, their research, and teaching achievements.</p>
+            <a href="#">View Faculty →</a>
+        </div>
+
+        <div class="card">
+            <i class="fas fa-book-open"></i>
+            <h2>Blog</h2>
+            <p>Read and share stories, experiences, and insights from our college community.</p>
+            <a href="#">Read Blog →</a>
+        </div>
+    </div>
+</section>
+</body>
+
+</html>
