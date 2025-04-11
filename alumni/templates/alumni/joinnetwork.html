@@ -10,6 +10,13 @@
 <body>
 
     <div class="form-container">
+        <div style="background-color: rgb(226, 25, 25); text-align: center; border-radius: 50px 50px ; color: white;">
+            {% if flag %}
+            <div class="alert alert-failure">
+                Email ID already exists
+            </div>
+            {% endif %}
+        </div>
         <h1>Create an Account</h1>
         <p>Join our community to connect with alumni, students, and faculty.</p>
         
@@ -47,7 +54,7 @@
                 <div>
                     <label>Degree</label>
                     <select class="Degree" name="Degree">
-                        <option value="Btech">Btech</option>
+                        <option value="Btech">B-Tech</option>
                         <option value="MBA">MBA</option>
                         <option value="Pharmacy">Pharmacy</option>
                       </select>

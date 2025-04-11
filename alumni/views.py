@@ -21,7 +21,7 @@ def create_account(request):
     role=request.POST.get('role')
     firstname=request.POST.get('first_name')
     lastname=request.POST.get('last_name')
-    email=request.POST.get('email')
+    email=request.POST.get('email').lower()
     password=request.POST.get("password")
     gradyear=request.POST.get("grad_year",'')
     degree=request.POST.get('degree','')
@@ -37,16 +37,19 @@ def create_account(request):
         
     # Checking for role to fetch database
     created=False
+    email_exist=False
     if(role=='Alumni'):
         if Alumni.objects.filter(email=email).exists():
-            return HttpResponse("Email Id already exists")
+            email_exist=True
+            return  render(request,'alumni/joinnetwork.html',{'flag':email_exist})
         Alumni.objects.create(role=role,first_name=firstname,last_name=lastname,email=email,password=hashed_password,graduation_year=gradyear,degree=degree)
         created=True
         return render(request,'alumni/signin.html',{'created':created})
     
     elif(role=='Student'):
         if Student.objects.filter(email=email).exists():
-            return HttpResponse("Email Id already exists")
+            email_exist=True
+            return  render(request,'alumni/joinnetwork.html',{'flag':email_exist})
         Student.objects.create(role=role,first_name=firstname,last_name=lastname,email=email,password=hashed_password,graduation_year=gradyear,degree=degree)
         created=True
         return render(request,'alumni/signin.html',{'created':created})
@@ -54,7 +57,7 @@ def create_account(request):
 # Module to Sign in
 def signindata(request):
     # Taking input from user using html form
-    email=request.POST.get('email')
+    email=request.POST.get('email').lower()
     password=request.POST.get('password')
     flag=True
     # Finding the email first in alumni table then in student table
