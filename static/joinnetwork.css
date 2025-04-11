@@ -66,9 +66,25 @@ input {
     gap: 10px;
     margin-top: 10px;
 }
+.Degree {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    gap: 8px;
+}
+
+
 
 .input-group div {
     flex: 1;
+}
+.first_name{
+    width: 10rem ;
+}
+.graduation_year{
+    width: 10rem ;
 }
 
 /* Submit Button */

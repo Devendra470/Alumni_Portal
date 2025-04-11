@@ -6,7 +6,37 @@ body {
     text-align: center;
     overflow: auto;
 }
+/* header styling */
+header{
+    background-color: #f9f9f9;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: sticky;
+        top: 0px;
 
+}
+header h1{
+    text-align: start;
+    padding:5px;
+    padding-left: 10px;
+    font-size: 1.5rem;
+}
+nav{
+    display: flex;
+    justify-content: end;
+}
+nav a {
+    margin: 0 15px;
+    color: #666;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  nav a:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  }
 /* Section Styling */
 .community-section {
     padding: 70px 20px;
@@ -78,7 +108,7 @@ body {
     text-decoration: underline;
 }
 /* landing page style */
-.landingpage {
+/* .landingpage {
     font-family: Arial, sans-serif;
     background: linear-gradient(to bottom, #e0e0e0, #f8f8f8);
     margin: 0;
@@ -88,16 +118,44 @@ body {
     align-items: center;
     height: 100vh;
     text-align: left;
+} */
+.landingpage {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #e0e0e0, #f8f8f8);
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    box-shadow: -4px -6px rgba(80, 36, 210, 0.1);
 }
-
-.hero {
+/* .hero {
     background: white;
     padding: 40px;
     border-radius: 10px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     max-width: 600px;
-}
-
+} */
+.hero {
+    background: white;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    background-image: url(https://images.shiksha.com/mediadata/images/1539684516phpkJFyjr_g.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+padding: 10px;
+height: 270px;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    height: 100%;
+    background: rgba(0,0,0,0.5); 
+    z-index: 0;
+  }
+  
+  .hero {
+    z-index: 1; 
+  }
 h1 {
     font-size: 32px;
     font-weight: bold;
@@ -107,6 +165,7 @@ h1 {
 p {
     color: #555;
     margin-bottom: 20px;
+    font-weight: 500;
 }
 
 .buttons {
@@ -122,6 +181,13 @@ p {
     cursor: pointer;
     border: none;
 }
+.buttons .btn {
+    padding: 12px 24px;
+    margin: 10px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+  }
 
 .btn.primary {
     background: black;
