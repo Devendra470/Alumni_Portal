@@ -8,12 +8,20 @@
     <title>Sign In</title>
     <link rel="stylesheet" href="{% static 'signin.css' %}">
 </head>
-<body>  
+
+<body>
     <div class="form-container">
         <div style="background-color: lightgreen; text-align: center; border-radius: 50px 50px ;">
             {% if created %}
             <div class="alert alert-success">
                 Account created successfully! Please log in.
+            </div>
+            {% endif %}
+        </div>
+        <div style="background-color: rgb(226, 25, 25); text-align: center; border-radius: 50px 50px ; color: white;">
+            {% if flag %}
+            <div class="alert alert-failure">
+                Invalid Email Id or password
             </div>
             {% endif %}
         </div>

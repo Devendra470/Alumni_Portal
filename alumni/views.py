@@ -56,7 +56,7 @@ def signindata(request):
     # Taking input from user using html form
     email=request.POST.get('email')
     password=request.POST.get('password')
-    
+    flag=True
     # Finding the email first in alumni table then in student table
     try:
         user=Alumni.objects.get(email=email)
@@ -65,13 +65,20 @@ def signindata(request):
             user=Student.objects.get(email=email)
 
         except Student.DoesNotExist:
-            return HttpResponse("Invalid Email ID or Password") #If not Found in both functon returns
+            return render(request,'alumni/signin.html',{'flag':flag}) #If not Found in both functon returns
     firstname=user.first_name
     # If function does not return then email is found now check for password
     if(check_password(password,user.password)):
         #To be changed
+        request.session['user_id']=user.id
+        request.session['email']=user.email
+        flag=False
         return render(request,'alumni/dashboard.html',{'name':firstname})
     else:
         #To be changed
-        return HttpResponse("Invalid Email or Password") 
+        return render(request,'alumni/signin.html',{'flag':flag})
     
+#Module to Logout
+def logout(request):
+    request.session.flush()
+    return render(request,'alumni/index.html')
