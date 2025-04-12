@@ -16,6 +16,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path ,include
+admin.site.site_header = "Gyan Ganga Alumni Admin"
+admin.site.site_title = "Gyan Ganga Alumni Admin Portal"
+admin.site.index_title = "Welcome to Gyan Ganga Alumni Portal"
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('alumni.urls'))
