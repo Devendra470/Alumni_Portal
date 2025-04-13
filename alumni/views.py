@@ -111,6 +111,8 @@ def verify_otp(request):
         entered_otp=request.POST.get('otp')
         generated_otp=request.session.get('otp')
         # If correct otp is entered
+        print(type(entered_otp))
+        print(type(generated_otp))
         if(entered_otp==generated_otp):
             # Collecting the data from session
             signup_data=request.session.get('user_data')
