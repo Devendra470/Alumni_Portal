@@ -38,8 +38,9 @@ def create_account(request):
     else:
         gradyear=None
     if degree=='':
-        degree=None
-        
+        degree=None    
+             
+    # Storing User Data into Template to create session 
     user_data={
                 'role':role,
                 'firstname':firstname,
@@ -50,7 +51,9 @@ def create_account(request):
                 'degree':degree,
                 'hashed_password':hashed_password
             }
-    otp=''.join([str(random.randint(0,9)) for _ in range(6)]) #Generating Otp
+    
+    #Generating Otp
+    otp=''.join([str(random.randint(0,9)) for _ in range(6)]) 
     request.session['otp']=otp
     
     # Checking for role to fetch database
@@ -58,20 +61,19 @@ def create_account(request):
         if Alumni.objects.filter(email=email).exists(): #Checking if email already exist
             return render(request,'alumni/joinnetwork.html',{'flag':True})
         
-        # If email id does not exist
+        # If email id does not exist then send otp
         else:
             request.session['user_data']=user_data
-            send_otp(email,request.session['otp'])
+            send_otp(email,request.session['otp'],role)
             return render(request,'alumni/otp_verification.html')
-    
-    
     
     elif(role=='Student'):
         if Student.objects.filter(email=email).exists(): #Checking if email already exist
             return  render(request,'alumni/joinnetwork.html',{'flag':True})
+        
         else:
             request.session['user_data']=user_data
-            send_otp(email,request.session['otp'])
+            send_otp(email,request.session['otp'],role)
             return render(request,'alumni/otp_verification.html')
 
 # Module to Sign in
@@ -92,18 +94,19 @@ def signindata(request):
     firstname=user.first_name
     # If function does not return then email is found now check for password
     if(check_password(password,user.password)):
-        #To be changed
+
         request.session['user_id']=user.id
         request.session['email']=user.email
         return render(request,'alumni/dashboard.html',{'name':firstname})
     else:
-        #To be changed
         return render(request,'alumni/signin.html',{'flag':True})
+ 
     
 #Module to Logout
 def logout(request):
     request.session.flush()
     return render(request,'alumni/index.html')
+
 
 # Module to validate otp
 def verify_otp(request):
@@ -121,11 +124,10 @@ def verify_otp(request):
             return render(request,'alumni/otp_verification.html',{'Invalid_Otp':True})
 
 
-      
 # Module for Sending Email
-def send_otp(user_email,otp):
+def send_otp(user_email,otp,role):
     subject="Your OTP for College Alumni Portal"
-    html_content=render_to_string("alumni/otp_template.html",{'otp':otp})
+    html_content=render_to_string("alumni/otp_template.html",{'otp':otp,'role':role})
     from_email=settings.EMAIL_HOST_USER
     to=[user_email]
     email=EmailMessage(subject,html_content,from_email,to)
