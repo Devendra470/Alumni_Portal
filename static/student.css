@@ -1,0 +1,160 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #ffffff;
+    color: #111827;
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  header.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffff;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  
+  .navbar .logo {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
+  .nav-links a {
+    margin: 0 0.75rem;
+    font-size: 0.95rem;
+    color: #374151;
+  }
+  
+  .auth-buttons button {
+    margin-left: 0.5rem;
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .auth-buttons .login {
+    background: #111827;
+    color: white;
+  }
+  
+  .auth-buttons .register {
+    background: #f1f5f9;
+    color: #111827;
+    border: 1px solid #d1d5db;
+  }
+  
+  .tabs {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0 1rem;
+  }
+  
+  .tab {
+    padding: 0.75rem 1.5rem;
+    border: 1px solid #d1d5db;
+    background: #f9fafb;
+    cursor: pointer;
+    margin: 0 0.25rem;
+    border-radius: 6px;
+    font-weight: 500;
+  }
+  
+  .tab.active {
+    background: white;
+    border-bottom: 2px solid #111827;
+  }
+  
+  .cards {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1rem 2rem;
+    flex-wrap: wrap;
+  }
+  
+  .card {
+    flex: 1 1 280px;
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    text-align: left;
+  }
+  
+  .card .icon {
+    font-size: 1.75rem;
+  }
+  
+  .card h3 {
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+  }
+  
+  .card p {
+    margin: 0.4rem 0;
+    font-size: 0.95rem;
+    color: #4b5563;
+  }
+  
+  .card-btn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.6rem 1.2rem;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    background: #f9fafb;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .cta {
+    background: #f8fafc;
+    text-align: center;
+    padding: 3rem 1rem;
+    margin-top: 3rem;
+  }
+  
+  .cta h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .cta p {
+    font-size: 1rem;
+    color: #4b5563;
+    margin-bottom: 1.5rem;
+  }
+  
+  .cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .cta-primary, .cta-secondary {
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    font-weight: 600;
+  }
+  
+  .cta-primary {
+    background: #111827;
+    color: white;
+  }
+  
+  .cta-secondary {
+    background: white;
+    border: 1px solid #d1d5db;
+    color: #111827;
+  }
+  
+  
