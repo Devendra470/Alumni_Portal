@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load static %}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create an Account</title>
+    <link rel="stylesheet" href="{% static 'joinnetwork.css' %}" />
+  </head>
+  <body>
+    <div class="form-container">
+      <div style="background-color: rgb(226, 25, 25); text-align: center; border-radius: 50px 50px ; color: white;"></div>
+      {% if Invalid_Otp %}
+        <div class="alert alert-failure">Inavlid OTP.</div>
+      {% endif %}
+      <h1>Create an Account</h1>
+      <p>Join our community to connect with alumni, students, and faculty.</p>
+      <p>An OTP has been sent to your email ID</p>
+      <form action="{% url 'verify_otp' %}" method="post" autocomplete="off">
+        {% csrf_token %}
+        <div class="input-group">
+          <div>
+            <label>Enter OTP</label>
+            <input class="otp" type="otp" name="otp" required />
+          </div>
+        </div>
+        <button type="submit">submit</button>
+      </form>
+    </div>
+  </body>
+</html>
