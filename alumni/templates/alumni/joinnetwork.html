@@ -1,69 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     {% load static %}
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Create an Account</title>
-    <link rel="stylesheet" href="{% static 'joinnetwork.css' %}">
-</head>
-<body>
-
+    <link rel="stylesheet" href="{% static 'joinnetwork.css' %}" />
+  </head>
+  <body>
     <div class="form-container">
-        <div style="background-color: rgb(226, 25, 25); text-align: center; border-radius: 50px 50px ; color: white;">
-            {% if flag %}
-            <div class="alert alert-failure">
-                Email ID already exists
-            </div>
-            {% endif %}
+      <div style="background-color: rgb(226, 25, 25); text-align: center; border-radius: 50px 50px ; color: white;">
+        {% if flag %}
+          <div class="alert alert-failure">Email ID already exists</div>
+        {% endif %}
+      </div>
+      <h1>Create an Account</h1>
+      <p>Join our community to connect with alumni, students, and faculty.</p>
+
+      <form action="{% url 'create_account' %}" method="post" autocomplete="off">
+        {% csrf_token %}
+        <label>I am a:</label>
+        <div class="radio-group">
+          <label><input type="radio" name="role" value="Alumni" checked />Alumni</label>
+          <label><input type="radio" name="role" value="Student" />Student</label>
+          <label><input type="radio" name="role" value="Faculty" />Faculty</label>
         </div>
-        <h1>Create an Account</h1>
-        <p>Join our community to connect with alumni, students, and faculty.</p>
-        
-        <form action="{% url 'create_account' %}" method="post" autocomplete="off">
-            {% csrf_token %}
-            <label>I am a:</label>
-            <div class="radio-group">
-                <label><input type="radio" name="role" value="Alumni" checked> Alumni</label>
-                <label><input type="radio" name="role" value="Student"> Student</label>
-                <label><input type="radio" name="role" value="Faculty"> Faculty</label>
-            </div>
 
-            <div class="input-group">
-                <div>
-                    <label>First Name</label>
-                    <input class="first_name" type="text" name="first_name" required>
-                </div>
-                <div>
-                    <label>Last Name</label>
-                    <input  class="last_name"  type="text" name="last_name" required>
-                </div>
-            </div>
+        <div class="input-group">
+          <div>
+            <label>First Name</label>
+            <input class="first_name" type="text" name="first_name" required />
+          </div>
+          <div>
+            <label>Last Name</label>
+            <input class="last_name" type="text" name="last_name" required />
+          </div>
+        </div>
 
-            <label>Email</label>
-            <input type="email" name="email" required>
+        <label>Email</label>
+        <input type="email" name="email" required />
 
-            <label>Password</label>
-            <input type="password" name="password" required>
+        <label>Password</label>
+        <input type="password" name="password" required />
 
-            <div class="input-group">
-                <div>
-                    <label>Graduation Year</label>
-                    <input  class="graduation_year"  type="text" name="grad_year">
-                </div>
-                <div>
-                    <label>Degree</label>
-                    <select class="Degree" name="Degree">
-                        <option value="Btech">B-Tech</option>
-                        <option value="MBA">MBA</option>
-                        <option value="Pharmacy">Pharmacy</option>
-                      </select>
-                </div>
-            </div>
+        <div class="input-group">
+          <div>
+            <label>Graduation Year</label>
+            <input class="graduation_year" type="text" name="grad_year" />
+          </div>
+          <div>
+            <label>Degree</label>
+            <select class="Degree" name="Degree">
+              <option value="Btech">B-Tech</option>
+              <option value="MBA">MBA</option>
+              <option value="Pharmacy">Pharmacy</option>
+            </select>
+          </div>
+        </div>
 
-            <button type="submit">Sign Up</button>
-        </form>
-    </div> 
-
-</body>
+        <button type="submit">Sign Up</button>
+      </form>
+    </div>
+  </body>
 </html>
