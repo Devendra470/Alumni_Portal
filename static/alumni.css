@@ -1,0 +1,194 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #fefefe;
+    color: #333;
+  }
+  
+  /* Navigation Bar */
+  nav {
+    background: #f9f9f9;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  nav a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+  }
+  
+  nav a:hover {
+    color: #0073e6;
+  }
+  
+  nav button {
+    margin-left: 10px;
+  }
+  
+  /* Hero Section */
+  .hero {
+    text-align: center;
+    padding: 80px 20px;
+    background: #ccc;
+    color: #111;
+  }
+  
+  .hero h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+  }
+  
+  .hero p {
+    font-size: 1.2em;
+  }
+  
+  /* Tabs */
+  .tabs {
+    display: flex;
+    justify-content: space-around;
+    background: #f0f0f0;
+    flex-wrap: wrap;
+  }
+  
+  .tab {
+    padding: 15px 25px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+  }
+  
+  .tab:hover {
+    background: #e0e0e0;
+  }
+  
+  /* Cards Section */
+  .cards {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 40px 20px;
+    background: #fff;
+    gap: 20px;
+  }
+  
+  .card {
+    border: 1px solid #ddd;
+    padding: 20px;
+    width: 30%;
+    border-radius: 10px;
+    background: #fafafa;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    transition: transform 0.2s;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .card h3 {
+    margin-top: 0;
+  }
+  
+  /* Spotlight Section */
+  .spotlight {
+    text-align: center;
+    background: #f4f8fc;
+    padding: 60px 20px;
+  }
+  
+  .spotlight h2 {
+    font-size: 2em;
+    margin-bottom: 30px;
+  }
+  
+  .spotlight-grid {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .spotlight-card {
+    width: 30%;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px #ddd;
+  }
+  
+  /* CTA Section */
+  .cta {
+    text-align: center;
+    background: #f4f8fc;
+    padding: 60px 20px;
+  }
+  
+  .cta h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+  }
+  
+  .cta p {
+    font-size: 1.1em;
+    margin-bottom: 20px;
+  }
+  
+  /* Buttons */
+  button {
+    padding: 12px 25px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background 0.3s;
+  }
+  
+  .dark-btn {
+    background: #111;
+    color: #fff;
+  }
+  
+  .dark-btn:hover {
+    background: #333;
+  }
+  
+  .light-btn {
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #111;
+  }
+  
+  .light-btn:hover {
+    background: #f2f2f2;
+  }
+  
+  /* Responsive */
+  @media (max-width: 900px) {
+    .cards, .spotlight-grid {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .card, .spotlight-card {
+      width: 90%;
+    }
+  
+    nav {
+      flex-direction: column;
+      gap: 10px;
+    }
+  
+    .tabs {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  

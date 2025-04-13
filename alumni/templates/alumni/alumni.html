@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>University Alumni</title>
+  <link rel="stylesheet" href="alumni.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header, nav, section, footer {
+      padding: 20px;
+    }
+    nav {
+      background: #f9f9f9;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #333;
+    }
+    .hero {
+      text-align: center;
+      padding: 80px 20px;
+      background: #ccc;
+    }
+    .tabs {
+      display: flex;
+      justify-content: space-around;
+      background: #f0f0f0;
+    }
+    .tab {
+      padding: 15px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .cards {
+      display: flex;
+      justify-content: space-around;
+      padding: 40px 20px;
+      background: #fff;
+    }
+    .card {
+      border: 1px solid #ddd;
+      padding: 20px;
+      width: 30%;
+      border-radius: 10px;
+    }
+    .spotlight {
+      text-align: center;
+      background: #f4f8fc;
+      padding: 40px 20px;
+    }
+    .spotlight-grid {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 20px;
+    }
+    .spotlight-card {
+      width: 30%;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 5px #ddd;
+    }
+    .cta {
+      text-align: center;
+      background: #f4f8fc;
+      padding: 40px 20px;
+    }
+    .cta button {
+      margin: 10px;
+      padding: 12px 25px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+    }
+    .dark-btn {
+      background: #111;
+      color: #fff;
+    }
+    .light-btn {
+      background: #fff;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div><strong>🎓 University Alumni</strong></div>
+    <div>
+      <a href="#">Home</a>
+      <a href="#">Students</a>
+      <a href="#">Faculty</a>
+      <a href="#">Alumni</a>
+      <a href="#">Blog</a>
+      <a href="#">Events</a>
+      <a href="#">Contact</a>
+    </div>
+    <div>
+      <button class="dark-btn">Login</button>
+      <button class="light-btn">Register</button>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <h1>For Alumni</h1>
+    <p>Stay connected with your alma mater, fellow graduates, and current students.</p>
+  </section>
+
+  <div class="tabs">
+    <div class="tab">Connect</div>
+    <div class="tab">Give Back</div>
+    <div class="tab">Events</div>
+    <div class="tab">Benefits</div>
+  </div>
+
+  <section class="cards">
+    <div class="card">
+      <h3>Alumni Directory</h3>
+      <p>Find and connect with fellow graduates.</p>
+      <p>Search our comprehensive alumni directory to find and reconnect with classmates and fellow graduates.</p>
+      <button class="light-btn">Browse Directory</button>
+    </div>
+    <div class="card">
+      <h3>Regional Networks</h3>
+      <p>Connect with alumni in your area.</p>
+      <p>Join regional alumni networks to meet graduates living in your area and attend local events.</p>
+      <button class="light-btn">Find Your Network</button>
+    </div>
+    <div class="card">
+      <h3>Professional Groups</h3>
+      <p>Connect with alumni in your industry.</p>
+      <p>Join industry-specific alumni groups to network with graduates working in your field.</p>
+      <button class="light-btn">Browse Groups</button>
+    </div>
+  </section>
+
+  <section class="spotlight">
+    <h2>Alumni Spotlight</h2>
+    <div class="spotlight-grid">
+      <div class="spotlight-card">
+        <h3>John Smith</h3>
+        <p>Class of 2005</p>
+        <p><strong>Current Position:</strong> CEO at Tech Innovations</p>
+        <p>"My education at the university provided me with the foundation I needed to succeed in my career..."</p>
+      </div>
+      <div class="spotlight-card">
+        <h3>John Smith</h3>
+        <p>Class of 2010</p>
+        <p><strong>Current Position:</strong> CEO at Tech Innovations</p>
+        <p>"The connections I made during my time there continue to be valuable to this day."</p>
+      </div>
+      <div class="spotlight-card">
+        <h3>John Smith</h3>
+        <p>Class of 2015</p>
+        <p><strong>Current Position:</strong> CEO at Tech Innovations</p>
+        <p>"The connections I made during my time there continue to be valuable to this day."</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2>Stay Connected</h2>
+    <p>Update your alumni profile to stay connected with your alma mater and fellow graduates.</p>
+    <button class="dark-btn">Update Your Profile</button>
+    <button class="light-btn">Get Involved</button>
+  </section>
+
+</body>
+</html>
