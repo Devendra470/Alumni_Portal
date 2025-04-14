@@ -5,3 +5,7 @@ venv/
 env/
 .DS_Store
 Thumbs.db
+alumni/__pycache__/urls.cpython-312.pyc
+alumni/__pycache__/views.cpython-312.pyc
+alumni/__pycache__/views.cpython-312.pyc
+alumni/__pycache__/views.cpython-312.pyc
