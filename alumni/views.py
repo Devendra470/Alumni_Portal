@@ -37,8 +37,7 @@ def create_account(request):
         gradyear=int(gradyear)
     else:
         gradyear=None
-    if degree=='':
-        degree=None    
+    degree=degree or None
              
     # Storing User Data into Template to create session 
     user_data={
@@ -58,7 +57,7 @@ def create_account(request):
     
     # Checking for role to fetch database
     if(role=='Alumni'):
-        if Alumni.objects.filter(email=email).exists(): #Checking if email already exist
+        if (Alumni.objects.filter(email=email).exists()) or (Student.objects.filter(email=email).exists()): #Checking if email already exist
             return render(request,'alumni/joinnetwork.html',{'flag':True})
         
         # If email id does not exist then send otp
@@ -68,7 +67,7 @@ def create_account(request):
             return render(request,'alumni/otp_verification.html')
     
     elif(role=='Student'):
-        if Student.objects.filter(email=email).exists(): #Checking if email already exist
+        if (Student.objects.filter(email=email).exists() )or (Alumni.objects.filter(email=email).exists()) : #Checking if email already exist
             return  render(request,'alumni/joinnetwork.html',{'flag':True})
         
         else:
@@ -81,23 +80,29 @@ def signindata(request):
     # Taking input from user using html form
     email=request.POST.get('email').lower()
     password=request.POST.get('password')
-    
+    user=None
+    role=None
     # Finding the email first in alumni table then in student table
     try:
         user=Alumni.objects.get(email=email)
+        role='Alumni'
     except Alumni.DoesNotExist:
         try:
             user=Student.objects.get(email=email)
-
+            role='Student'
         except Student.DoesNotExist:
             return render(request,'alumni/signin.html',{'flag':True}) #If not Found in both functon returns
     firstname=user.first_name
     # If function does not return then email is found now check for password
     if(check_password(password,user.password)):
-
         request.session['user_id']=user.id
         request.session['email']=user.email
-        return render(request,'alumni/dashboard.html',{'name':firstname})
+        request.session['name']=user.first_name
+        request.session['role']=role  
+        if(role=='Alumni'):
+            return render(request,'alumni/alumni.html',{'name':firstname})
+        elif(role=='Student'):
+            return render(request,'alumni/student.html',{'name':firstname})
     else:
         return render(request,'alumni/signin.html',{'flag':True})
  
@@ -118,6 +123,7 @@ def verify_otp(request):
             # Collecting the data from session
             signup_data=request.session.get('user_data')
             Create_user(signup_data)
+            request.session.pop('otp',None)
             return render(request,'alumni/signin.html',{'created':True,'flag':False})
         # IF Incorrect Otp is entered
         else:   
@@ -133,7 +139,16 @@ def send_otp(user_email,otp,role):
     email=EmailMessage(subject,html_content,from_email,to)
     email.content_subtype="html"
     email.send()
-    
+
+# Module to resend otp
+def resend_otp(request):
+    signup_data=request.session.get('user_data')   
+    user_email=signup_data['email']
+    otp=''.join([str(random.randint(0,9)) for _ in range(6)]) 
+    request.session['otp']=otp
+    role=signup_data['role']
+    send_otp(user_email,otp,role)
+    return render(request,'alumni/otp_verification.html',{'resend_otp':True})
     
     
 # Module to Create a new user  

@@ -9,5 +9,6 @@ urlpatterns = [
     path("create_account",views.create_account,name="create_account"),
     path('signindata',views.signindata,name='signindata'),
     path('logout',views.logout,name='logout'),
-    path('verify_otp',views.verify_otp,name="verify_otp")
+    path('verify_otp',views.verify_otp,name="verify_otp"),
+    path('resend_otp',views.resend_otp,name='resend_otp'),
 ]
