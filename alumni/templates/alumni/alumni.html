@@ -1,78 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
+{% load static %}
+
 <head>
   <meta charset="UTF-8">
-  <title>University Alumni</title>
-  <link rel="stylesheet" href="alumni.css">
+  <title>Alumni Connect</title>
+  <link rel="stylesheet" href="{%static 'alumni.css' %}">
   <style>
     body {
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
     }
-    header, nav, section, footer {
+
+    header,
+    nav,
+    section,
+    footer {
       padding: 20px;
     }
+
     nav {
       background: #f9f9f9;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
+
     nav a {
       margin: 0 10px;
       text-decoration: none;
       color: #333;
     }
+
     .hero {
       text-align: center;
       padding: 80px 20px;
       background: #ccc;
     }
+
     .tabs {
       display: flex;
       justify-content: space-around;
       background: #f0f0f0;
     }
+
     .tab {
       padding: 15px;
       cursor: pointer;
       font-weight: bold;
     }
+
     .cards {
       display: flex;
       justify-content: space-around;
       padding: 40px 20px;
       background: #fff;
     }
+
     .card {
       border: 1px solid #ddd;
       padding: 20px;
-      width: 30%;
+      width: 20%;
       border-radius: 10px;
     }
+
     .spotlight {
       text-align: center;
       background: #f4f8fc;
-      padding: 40px 20px;
+      padding: 30px 20px;
     }
+
     .spotlight-grid {
       display: flex;
       justify-content: space-around;
       margin-top: 20px;
     }
+
     .spotlight-card {
-      width: 30%;
+      width: 20%;
       background: #fff;
       padding: 20px;
       border-radius: 10px;
       box-shadow: 0 0 5px #ddd;
     }
+
     .cta {
       text-align: center;
       background: #f4f8fc;
       padding: 40px 20px;
     }
+
     .cta button {
       margin: 10px;
       padding: 12px 25px;
@@ -81,20 +99,25 @@
       border: none;
       cursor: pointer;
     }
+
     .dark-btn {
       background: #111;
       color: #fff;
     }
+
     .light-btn {
       background: #fff;
       border: 1px solid #ccc;
     }
   </style>
 </head>
+
 <body>
 
   <nav>
-    <div><strong>🎓 University Alumni</strong></div>
+    <div><strong>
+        <h1>🎓 Alumni Connect</h1>
+      </strong></div>
     <div>
       <a href="#">Home</a>
       <a href="#">Students</a>
@@ -105,8 +128,10 @@
       <a href="#">Contact</a>
     </div>
     <div>
-      <button class="dark-btn">Login</button>
-      <button class="light-btn">Register</button>
+      <form action="{% url 'logout'%}" method="post">
+        {% csrf_token %}
+        <button class="dark-btn">Log Out</button>
+      </form>
     </div>
   </nav>
 
@@ -117,7 +142,6 @@
 
   <div class="tabs">
     <div class="tab">Connect</div>
-    <div class="tab">Give Back</div>
     <div class="tab">Events</div>
     <div class="tab">Benefits</div>
   </div>
@@ -175,4 +199,5 @@
   </section>
 
 </body>
+
 </html>

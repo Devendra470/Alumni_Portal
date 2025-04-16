@@ -20,6 +20,10 @@ def signup(request):
 def signin(request):
     return render(request,'alumni/signin.html')
 
+# Module to display password change page
+def password_change_page(request):
+    return render(request,'alumni/passwd.html')
+
 # Module to Signup
 def create_account(request):
     # Collecting Data from html form
@@ -169,4 +173,15 @@ def Create_user(signup_data):
                                       password=signup_data['hashed_password'],
                                       graduation_year=signup_data['gradyear'],
                                       degree=signup_data['degree'])
+    
+
+def change_password(request):
+    new_password=request.POST.get('newpassword')
+    confirm_password=request.POST.get('confirmpassword')
+    print(new_password)
+    print(confirm_password)
+    if(new_password==confirm_password):
+          pass
+    else:
+         return render(request,'alumni/passwd.html',{'flag': True})
     
