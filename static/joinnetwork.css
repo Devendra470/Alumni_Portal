@@ -14,27 +14,31 @@ body {
     background-color: white;
     padding: 25px;
     width: 400px;
-    border-radius: 10px;
+    border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: left;
 }
 
 /* Title and Subtitle */
 h1 {
-    font-size: 24px;
+    font-size: 30px;
     font-weight: bold;
+    font-family: cursive;
+    text-align: center;
+    color: #0D47A1;
 }
 
 p {
-    color: #666;
     font-size: 14px;
     margin-bottom: 15px;
+    font-family: cursive;
+    text-align: center;
 }
 
 /* Radio Button Group */
 .radio-group {
-    display: flex;
-    gap: 10px;
+    display:flex;
+    gap: 30px;
     margin: 10px 0;
 }
 
@@ -91,8 +95,8 @@ input {
 button {
     width: 100%;
     padding: 10px;
-    background-color: black;
-    color: white;
+    background-color: gold;
+    color: black;
     border: none;
     border-radius: 5px;
     font-size: 16px;
@@ -101,5 +105,5 @@ button {
 }
 
 button:hover {
-    background-color: #333;
+    background-color: #c51212;
 }

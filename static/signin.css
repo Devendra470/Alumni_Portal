@@ -12,23 +12,28 @@ body {
 /* Form Container */
 .form-container {
     background-color: white;
-    padding: 25px;
-    width: 350px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 40px 30px;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
     text-align: left;
 }
 
 /* Title and Subtitle */
 h1 {
-    font-size: 24px;
+    font-size: 30px;
     font-weight: bold;
+    text-align: center;
+    font-family: cursive;
+    color: #0D47A1;
 }
 
 p {
-    color: #666;
     font-size: 14px;
     margin-bottom: 15px;
+    text-align: center;
+    font-family: cursive;
 }
 
 /* Labels and Inputs */
@@ -37,6 +42,7 @@ label {
     font-weight: bold;
     display: block;
     margin-top: 10px;
+    color: #333 ;
 }
 
 input {
@@ -57,7 +63,7 @@ input {
 /* Forgot Password Link */
 .forgot-password {
     font-size: 12px;
-    color: #666;
+    color: #B71C1C;
     text-decoration: none;
 }
 
@@ -69,8 +75,8 @@ input {
 button {
     width: 100%;
     padding: 10px;
-    background-color: black;
-    color: white;
+    background-color: gold;
+    color: black;
     border: none;
     border-radius: 5px;
     font-size: 16px;
@@ -79,7 +85,7 @@ button {
 }
 
 button:hover {
-    background-color: #333;
+    background-color: #f5c518;
 }
 
 /* Register Link */
@@ -92,7 +98,7 @@ button:hover {
 .register-link a {
     font-weight: bold;
     text-decoration: none;
-    color: black;
+    color: #0D47A1;
 }
 
 .register-link a:hover {
