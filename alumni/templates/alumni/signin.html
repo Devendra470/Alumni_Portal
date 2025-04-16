@@ -1,48 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    {% load static %}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign In</title>
+    <link rel="stylesheet" href="{% static 'signin.css' %}" />
+  </head>
 
-<head>
-  {% load static %}
-
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sign In</title>
-  <link rel="stylesheet" href="{% static 'signin.css' %}" />
-</head>
-
-<body>
-  <div class="form-container">
-    <div style="background-color: lightgreen; text-align: center; border-radius: 50px 50px ;">
-      {% if created %}
-      <div class="alert alert-success">Account created successfully! Please log in.</div>
-      {% endif %}
-    </div>
-    <div style="background-color: rgb(226, 25, 25); text-align: center; border-radius: 50px 50px ; color: white;">
-      {% if flag %}
-      <div class="alert alert-failure">Invalid Email Id or password</div>
-      {% endif %}
-    </div>
-    <h1>Sign In</h1>
-    <p>Enter your credentials to access your account</p>
-
-    <form method="post" action="{% url 'signindata' %}" autocomplete="off">
-      {% csrf_token %}
-      <label>Email</label>
-      <input type="email" name="email" required />
-
-      <div class="password-group">
-        <label>Password</label>
-        <a href="{% url 'password_reset' %}" class="forgot-password">Forgot password?</a>
+  <body>
+    <div class="form-container">
+      <div style="background-color: lightgreen; text-align: center; border-radius: 50px 50px ;">
+        {% if created %}
+          <div class="alert alert-success">Account created successfully! Please log in.</div>
+        {% endif %}
       </div>
-      <input type="password" name="password" required />
+      <div style="background-color: rgb(226, 25, 25); text-align: center; border-radius: 50px 50px ; color: white;">
+        {% if flag %}
+          <div class="alert alert-failure">Invalid Email Id or password</div>
+        {% endif %}
+      </div>
+      <h1>Sign In</h1>
+      <p>Enter your credentials to access your account</p>
 
-      <button type="submit">Sign In</button>
-    </form>
+      <form method="post" action="{% url 'signindata' %}" autocomplete="off">
+        {% csrf_token %}
+        <label>Email</label>
+        <input type="email" name="email" required />
 
-    <p class="register-link">
-      Don't have an account? <a href="joinnetwork">Register</a>
-    </p>
-  </div>
-</body>
+        <div class="password-group">
+          <label>Password</label>
+          <a href="{% url 'password_reset' %}" class="forgot-password">Forgot password?</a>
+        </div>
+        <input type="password" name="password" required />
 
+        <button type="submit">Sign In</button>
+      </form>
+
+      <p class="register-link">
+        Don't have an account? <a href="joinnetwork">Register</a>
+      </p>
+    </div>
+  </body>
 </html>
