@@ -21,8 +21,8 @@ def signin(request):
     return render(request,'alumni/signin.html')
 
 # Module to display password change page
-def password_change_page(request):
-    return render(request,'alumni/passwd.html')
+def password_reset_page(request):
+    return render(request,'alumni/password_reset.html')
 
 # Module to Signup
 def create_account(request):
@@ -174,8 +174,8 @@ def Create_user(signup_data):
                                       graduation_year=signup_data['gradyear'],
                                       degree=signup_data['degree'])
     
-
-def change_password(request):
+# Module to Change Password
+def passoword_reset(request):
     new_password=request.POST.get('newpassword')
     confirm_password=request.POST.get('confirmpassword')
     print(new_password)
@@ -183,5 +183,5 @@ def change_password(request):
     if(new_password==confirm_password):
           pass
     else:
-         return render(request,'alumni/passwd.html',{'flag': True})
+         return render(request,'alumni/password_reset.html',{'flag': True})
     
