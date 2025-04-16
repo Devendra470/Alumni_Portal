@@ -6,52 +6,65 @@ body {
     text-align: center;
     overflow: auto;
 }
+
 /* header styling */
-header{
+header {
     background-color: #f9f9f9;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        position: sticky;
-        top: 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0px;
+    height: 776px 56px;
 
 }
-header h1{
+
+header h1 {
     text-align: start;
-    padding:5px;
-    padding-left: 10px;
+    padding: 5px;
+    padding-left: 15vh;
     font-size: 1.5rem;
+    color: white;
 }
-nav{
+
+nav {
     display: flex;
+    padding-right: 15vh;
     justify-content: end;
 }
+
 nav a {
     margin: 0 15px;
-    color: #666;
+    color: white;
     text-decoration: none;
     font-weight: bold;
-  }
-  
-  nav a:hover{
+}
+
+nav a:hover {
     transform: translateY(-5px);
     /* box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); */
     transition: all 0.4s ease;
-  }
+}
+
 /* Section Styling */
 .community-section {
-    padding: 70px 20px;
+    padding: 40px 20px;
+    background-color: #FAFAFA;
 }
 
 .community-section h1 {
+    color: rgb(57, 63, 63);
     font-size: 36px;
     font-weight: bold;
+    font-family: cursive;
+    margin-top: 5px;
 }
 
 .community-section p {
     color: #666;
     font-size: 18px;
     margin-bottom: 30px;
+    font-family: cursive;
 }
 
 /* Card Container */
@@ -86,6 +99,7 @@ nav a {
 
 /* Card Text */
 .card h2 {
+    font-family: cursive;
     font-size: 22px;
     margin: 10px 0;
 }
@@ -108,6 +122,7 @@ nav a {
 .card a:hover {
     text-decoration: underline;
 }
+
 /* landing page style */
 /* .landingpage {
     font-family: Arial, sans-serif;
@@ -128,6 +143,7 @@ nav a {
     width: 100vw;
     box-shadow: -4px -6px rgba(80, 36, 210, 0.1);
 }
+
 /* .hero {
     background: white;
     padding: 40px;
@@ -137,36 +153,43 @@ nav a {
 } */
 .hero {
     background: white;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    background-image: url(https://images.shiksha.com/mediadata/images/1539684516phpkJFyjr_g.jpg);
+    /* box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); */
+    background: url('IMG_20250415_163103.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-padding: 10px;
-height: 270px;
-  }
-  .hero::before {
+    padding: 100px 0px;
+    height: 200px;
+    /* filter: brightness(50%); */
+}
+
+.hero::before {
     content: '';
     position: absolute;
-    top: 0; left: 0;
+    top: 0;
+    left: 0;
     height: 100%;
-    background: rgba(0,0,0,0.5); 
-    z-index: 0;
-  }
-  
-  .hero {
-    z-index: 1; 
-  }
+    background: rgba(0, 0, 0, 0.5);
+    z-index: -1;    
+}
+
+.hero {
+    z-index: 1;
+}
+
 h1 {
-    font-size: 32px;
+    font-size: 38px;
     font-weight: bold;
     margin-bottom: 10px;
+    color: white;
+
 }
 
 p {
-    color: #555;
+    color: white;
     margin-bottom: 20px;
     font-weight: 500;
+    font-size: larger;
 }
 
 .buttons {
@@ -182,21 +205,23 @@ p {
     cursor: pointer;
     border: none;
 }
+
 .buttons .btn {
     padding: 12px 24px;
     margin: 10px;
     border-radius: 6px;
     text-decoration: none;
     font-weight: bold;
-  }
+    color: black;
+}
 
 .btn.primary {
-    background: black;
-    color: white;
+    background: gold;
 }
 
 .btn.secondary {
-    background: white;
-    color: black;
-    border: 1px solid #ccc;
+    background: #B71C1C;
+    width: 20vh;
+    color: white;
+    /* border: 1px solid #ccc; */
 }
