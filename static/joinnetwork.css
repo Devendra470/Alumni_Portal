@@ -8,7 +8,24 @@ body {
     height: 100vh;
     margin: 0;
 }
+header {
+    background-color: #f9f9f9;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0px;
+    height: 776px 56px;
 
+}
+
+header h1 {
+    text-align: start;
+    padding: 5px;
+    padding-left: 15vh;
+    font-size: 1.5rem;
+    color: white;
+}
 /* Form Container */
 .form-container {
     background-color: white;
