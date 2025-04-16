@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Student,Alumni
+from .models import user
 from django.contrib.auth.hashers import make_password,check_password
 import random
 from django.core.mail import EmailMessage
@@ -59,49 +59,34 @@ def create_account(request):
     otp=''.join([str(random.randint(0,9)) for _ in range(6)]) 
     request.session['otp']=otp
     
-    # Checking for role to fetch database
-    if(role=='Alumni'):
-        if (Alumni.objects.filter(email=email).exists()) or (Student.objects.filter(email=email).exists()): #Checking if email already exist
-            return render(request,'alumni/joinnetwork.html',{'flag':True})
+    if (user.objects.filter(email=email).exists()): #Checking if email already exist
+        return render(request,'alumni/joinnetwork.html',{'flag':True})
         
-        # If email id does not exist then send otp
-        else:
-            request.session['user_data']=user_data
-            send_otp(email,request.session['otp'],role)
-            return render(request,'alumni/otp_verification.html')
-    
-    elif(role=='Student'):
-        if (Student.objects.filter(email=email).exists() )or (Alumni.objects.filter(email=email).exists()) : #Checking if email already exist
-            return  render(request,'alumni/joinnetwork.html',{'flag':True})
-        
-        else:
-            request.session['user_data']=user_data
-            send_otp(email,request.session['otp'],role)
-            return render(request,'alumni/otp_verification.html')
+    # If email id does not exist then send otp
+    else:
+        request.session['user_data']=user_data
+        send_otp(email,request.session['otp'],role)
+        return render(request,'alumni/otp_verification.html')
 
 # Module to Sign in
 def signindata(request):
     # Taking input from user using html form
     email=request.POST.get('email').lower()
     password=request.POST.get('password')
-    user=None
+    logged_user=None
     role=None
-    # Finding the email first in alumni table then in student table
+    # Finding the in User Table and taking the data into logged_user
     try:
-        user=Alumni.objects.get(email=email)
-        role='Alumni'
-    except Alumni.DoesNotExist:
-        try:
-            user=Student.objects.get(email=email)
-            role='Student'
-        except Student.DoesNotExist:
-            return render(request,'alumni/signin.html',{'flag':True}) #If not Found in both functon returns
-    firstname=user.first_name
+        logged_user=user.objects.get(email=email)
+        role=logged_user.role
+    except user.DoesNotExist:
+        return render(request,'alumni/signin.html',{'flag':True}) #If not Found functon returns
+    firstname=logged_user.first_name
     # If function does not return then email is found now check for password
-    if(check_password(password,user.password)):
-        request.session['user_id']=user.id
-        request.session['email']=user.email
-        request.session['name']=user.first_name
+    if(check_password(password,logged_user.password)):
+        request.session['user_id']=logged_user.id
+        request.session['email']=logged_user.email
+        request.session['name']=logged_user.first_name
         request.session['role']=role  
         if(role=='Alumni'):
             return render(request,'alumni/alumni.html',{'name':firstname})
@@ -157,23 +142,13 @@ def resend_otp(request):
     
 # Module to Create a new user  
 def Create_user(signup_data):
-    if(signup_data['role']=='Alumni'):
-                Alumni.objects.create(role=signup_data['role'],
-                                      first_name=signup_data['firstname'],
-                                      last_name=signup_data['lastname'],
-                                      email=signup_data['email'],
-                                      password=signup_data['hashed_password'],
-                                      graduation_year=signup_data['gradyear'],
-                                      degree=signup_data['degree'])
-    elif(signup_data['role']=='Student'):
-                Student.objects.create(role=signup_data['role'],
-                                      first_name=signup_data['firstname'],
-                                      last_name=signup_data['lastname'],
-                                      email=signup_data['email'],
-                                      password=signup_data['hashed_password'],
-                                      graduation_year=signup_data['gradyear'],
-                                      degree=signup_data['degree'])
-    
+    user.objects.create(role=signup_data['role'],
+                        first_name=signup_data['firstname'],
+                        last_name=signup_data['lastname'],
+                        email=signup_data['email'],
+                        password=signup_data['hashed_password'],
+                        graduation_year=signup_data['gradyear'],
+                        degree=signup_data['degree'])
 # Module to Change Password
 def passoword_reset(request):
     new_password=request.POST.get('newpassword')
