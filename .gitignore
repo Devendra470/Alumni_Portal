@@ -9,3 +9,5 @@ alumni/__pycache__/urls.cpython-312.pyc
 alumni/__pycache__/views.cpython-312.pyc
 alumni/__pycache__/views.cpython-312.pyc
 alumni/__pycache__/views.cpython-312.pyc
+__pycache__/
+*.py[cod]
