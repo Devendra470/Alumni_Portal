@@ -1,0 +1,153 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+  color: #111;
+}
+
+/* Layout */
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 15px;
+}
+
+/* Header */
+.navbar {
+  background-color: rgb(22, 146, 255);
+  padding: px 0;
+  border-bottom: 1px solid #ddd;
+}
+.nav-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo {
+  font-weight: bold;
+}
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+.nav-links li {
+  cursor: pointer;
+}
+.nav-links .active {
+  font-weight: bold;
+  text-decoration: underline;
+}
+.auth-buttons button {
+  margin-left: 10px;
+  padding: 6px 12px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+/* Search */
+.search-bar {
+  margin: 20px 0;
+}
+.search-bar input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Category buttons */
+.category-filters,
+.tab-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+.category-filters button,
+.tab-row button {
+  padding: 8px 16px;
+  background: #f1f3f5;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.category-filters .active,
+.tab-row .active {
+  background: #111;
+  color: #fff;
+}
+
+/* Posts */
+h2 {
+  margin: 30px 0 15px;
+}
+
+.grid {
+  display: grid;
+  gap: 20px;
+}
+.three-cols {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.card {
+  background: #fff;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+}
+.img-placeholder {
+  height: 180px;
+  background: #ddd url('https://via.placeholder.com/400x180?text=Image') center center no-repeat;
+  background-size: cover;
+}
+.card-content {
+  padding: 15px;
+}
+.card-content .tag {
+  display: inline-block;
+  background: #f1f3f5;
+  border-radius: 12px;
+  padding: 3px 10px;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+.card-content h3, .card-content h4 {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+.card-content .meta {
+  font-size: 0.85rem;
+  color: #555;
+  margin-bottom: 10px;
+}
+.read-more {
+  background: #f1f3f5;
+  border: none;
+  padding: 8px 16px;
+  margin-top: 10px;
+  cursor: pointer;
+  border-radius: 6px;
+}
+.small .img-placeholder {
+  height: 120px;
+}
+.center {
+  text-align: center;
+  margin-top: 20px;
+}
+.view-all {
+  background: #111;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+}
