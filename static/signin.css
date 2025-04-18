@@ -25,7 +25,6 @@ h1 {
     font-size: 30px;
     font-weight: bold;
     text-align: center;
-    font-family: cursive;
     color: #0D47A1;
 }
 
@@ -33,7 +32,6 @@ p {
     font-size: 14px;
     margin-bottom: 15px;
     text-align: center;
-    font-family: cursive;
 }
 
 /* Labels and Inputs */
