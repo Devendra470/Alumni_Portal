@@ -1,81 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     {% load static %}
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Explore Our Community</title>
+<<<<<<< HEAD
     <link rel="stylesheet" href="{% static 'style.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+=======
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+>>>>>>> ebf9216d2b841bf9744eebc61d8cfd434d30d931
     <script src="https://kit.fontawesome.com/YOUR_KIT_CODE.js" crossorigin="anonymous"></script>
-</head>
+  </head>
 
-<body>
-    <header style="background-color: rgb(22, 146, 255);">
-        <h1><i class="fa-solid fa-graduation-cap" style="color: white; "></i>Alumni Connect</h1>
-        <nav>
-            <a href="#">Dashboard</a>
-            <a href="#">My Profile</a>
-            <a href="#">Events</a>
-            <a href="#">Directory</a>
-        </nav>
+  <body>
+    <header style="background-color: #303030">
+      <h1><i class="fa-solid fa-graduation-cap" style="color: white; "></i>Alumni Connect</h1>
+      <nav>
+        <a href="https://ggits.org/">GGITS</a>
+        <a href="#">Events</a>
+        <a href="#">About Us</a>
+        <a href="signin">Sign In</a>
+      </nav>
     </header>
     <section class="landingpage">
-        <div class="hero">
-            <div>
-                <h1 class="display-4 fw-bold">Welcome to GYAN GANGA GROUP OF INSTITUTIONS Alumni Network</h1>
-                <p>Connect with fellow alumni, students, and faculty. Share experiences, opportunities, and stay
-                    updated
-                    with college news.</p>
-                <div class="buttons">
-                    <a href="joinnetwork" class="btn primary">Join the Network →</a>
-                    <a href="signin" class="btn secondary">Sign In
-                    </a>
-                </div>
-            </div>
+      <div class="hero">
+        <div>
+          <h1 class="display-4 fw-bold">Welcome to GYAN GANGA GROUP OF INSTITUTIONS Alumni Network</h1>
+          <p>Connect with fellow alumni, students, and faculty. Share experiences, opportunities, and stay updated with college news.</p>
+          <div class="buttons">
+            <a href="joinnetwork" class="btn primary">Join the Network →</a>
+            <a href="signin" class="btn secondary">Sign In</a>
+          </div>
         </div>
+      </div>
     </section>
 
     <section class="community-section">
-        <h1>Explore Our Community</h1>
-        <p>Discover the diverse sections of our portal, each designed to connect different members of our college
-            community.</p>
+      <h1>Explore Our Community</h1>
+      <p>Discover the diverse sections of our portal, each designed to connect different members of our college community.</p>
 
-        <div class="cards-container">
-            <div class="card">
-                <i class="fas fa-graduation-cap" style="color:rgb(15, 8, 50);"></i>
-                <h2>Alumni</h2>
-                <p>Connect with graduates from all years and see where their journeys have taken them.</p>
-                <!-- <a href="#">View Alumni →</a> -->
-            </div>
-
-            <div class="card">
-                <i class="fas fa-user-graduate" style="color: green;"></i>
-                <h2>Students</h2>
-                <p>Meet current students, learn about their projects, and offer mentorship opportunities.</p>
-                <!-- <a href="#">View Students →</a> -->
-            </div>
-
-            <div class="card">
-                <i class="fas fa-user-tie" style="color:slateblue;"></i>
-                <h2>Faculty</h2>
-                <p>Discover our esteemed faculty members, their research, and teaching achievements.</p>
-                <!-- <a href="#">View Faculty →</a> -->
-            </div>
-
-            <div class="card">
-                <i class="fas fa-book-open" style="color: #B71C1C;"></i>
-                <h2>Blog</h2>
-                <p>Read and share stories, experiences, and insights from our college community.</p>
-                <!-- <a href="#">Read Blog →</a> -->
-            </div>
+      <div class="cards-container">
+        <div class="card">
+          <i class="fas fa-graduation-cap" style="color:rgb(15, 8, 50);"></i>
+          <h2>Alumni</h2>
+          <p>Connect with graduates from all years and see where their journeys have taken them.</p>
+          <!-- <a href="#">View Alumni →</a> -->
         </div>
+
+        <div class="card">
+          <i class="fas fa-user-graduate" style="color: green;"></i>
+          <h2>Students</h2>
+          <p>Meet current students, learn about their projects, and offer mentorship opportunities.</p>
+          <!-- <a href="#">View Students →</a> -->
+        </div>
+
+        <div class="card">
+          <i class="fas fa-user-tie" style="color:slateblue;"></i>
+          <h2>Faculty</h2>
+          <p>Discover our esteemed faculty members, their research, and teaching achievements.</p>
+          <!-- <a href="#">View Faculty →</a> -->
+        </div>
+
+        <div class="card">
+          <i class="fas fa-book-open" style="color: #B71C1C;"></i>
+          <h2>Blog</h2>
+          <p>Read and share stories, experiences, and insights from our college community.</p>
+          <!-- <a href="#">Read Blog →</a> -->
+        </div>
+      </div>
     </section>
-
-</body>
-
+  </body>
 </html>
