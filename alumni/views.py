@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import user
+from .models import User
 from django.contrib.auth.hashers import make_password,check_password
 import random
 from django.core.mail import EmailMessage
@@ -49,7 +49,6 @@ def create_account(request):
                 'firstname':firstname,
                 'lastname':lastname,
                 'email':email.lower(),
-                'password':password,
                 'gradyear':gradyear,
                 'degree':degree,
                 'hashed_password':hashed_password
@@ -59,7 +58,7 @@ def create_account(request):
     otp=''.join([str(random.randint(0,9)) for _ in range(6)]) 
     request.session['otp']=otp
     
-    if (user.objects.filter(email=email).exists()): #Checking if email already exist
+    if (User.objects.filter(email=email).exists()): #Checking if email already exist
         return render(request,'alumni/joinnetwork.html',{'flag':True})
         
     # If email id does not exist then send otp
@@ -77,9 +76,9 @@ def signindata(request):
     role=None
     # Finding the in User Table and taking the data into logged_user
     try:
-        logged_user=user.objects.get(email=email)
+        logged_user=User.objects.get(email=email)
         role=logged_user.role
-    except user.DoesNotExist:
+    except User.DoesNotExist:
         return render(request,'alumni/signin.html',{'flag':True}) #If not Found functon returns
     firstname=logged_user.first_name
     # If function does not return then email is found now check for password
@@ -142,7 +141,7 @@ def resend_otp(request):
     
 # Module to Create a new user  
 def Create_user(signup_data):
-    user.objects.create(role=signup_data['role'],
+    User.objects.create(role=signup_data['role'],
                         first_name=signup_data['firstname'],
                         last_name=signup_data['lastname'],
                         email=signup_data['email'],
