@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Profile Dashboard</title>
+  <link rel="stylesheet" href="studentprofile.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header style="background-color: #303030">
+        <h1><i class="fa-solid fa-graduation-cap" style="color: white; "></i>Alumni Connect</h1>
+        <nav>
+          <a href="https://ggits.org/">GGITS</a>
+          <a href="#">Events</a>
+          <a href="#">About Us</a>
+          <a href="signin">Sign In</a>
+        </nav>
+      </header>
+
+  <div class="container">
+    <div class="sidebar">
+      <img src="" alt="Profile Photo">
+      <button>Upload Photo</button>
+      <input type="password" placeholder="Old Password">
+      <input type="password" placeholder="New Password">
+      <button>Change Password</button>
+    </div>
+
+    <div class="main">
+      <h2> Update Profile</h2>
+      <div class="form-grid">
+        <div class="form-group">
+          <label>Username</label>
+          <input type="text" placeholder="username">
+        </div>
+        <div class="form-group">
+            <label>Year of Graduation</label>
+            <input type="integer" placeholder="">
+          </div>
+        <div class="form-group">
+          <label>First Name</label>
+          <input type="text" placeholder="">
+        </div>
+        <div class="form-group">
+          <label>Last Name</label>
+          <input type="text" placeholder="">
+        </div>
+        <div class="form-group">
+            <label>Role</label>
+            <select>
+              <option>Student</option>
+              <option>Alumni</option>
+            </select>
+          </div>
+        <div class="form-group">
+          <label>Email (required)</label>
+          <input type="email" placeholder="abc@gmai.com">
+        </div>
+        <div class="form-group">
+          <label>LinkedIn</label>
+          <input type="url" placeholder="paste link">
+        </div>
+        <div class="form-group">
+          <label>GitHub</label>
+          <input type="text" placeholder="paste link">
+        </div>
+      </div>
+
+      <div class="bio">
+        <h3>About the User</h3>
+        <textarea name="bio" placeholder="Tell us more about yourself!"></textarea>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
