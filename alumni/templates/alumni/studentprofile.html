@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+{% load static%}
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>User Profile Dashboard</title>
-  <link rel="stylesheet" href="profile.css">
+  <link rel="stylesheet" href="{%static 'profile.css' %}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -38,40 +39,42 @@
         </div>
         <div class="form-group">
             <label>Year of Graduation</label>
-            <input type="integer" placeholder="">
+            <input type="integer" placeholder=""
+          value="{{ grad_year|default:'' }}">
+            
           </div>
         <div class="form-group">
           <label>First Name</label>
-          <input type="text" placeholder="">
+          <input type="text" placeholder="" value= "{{first_name}}">
         </div>
         <div class="form-group">
           <label>Last Name</label>
-          <input type="text" placeholder="">
+          <input type="text" placeholder="" value= "{{last_name}}">
         </div>
         <div class="form-group">
             <label>Role</label>
             <select>
-              <option>Student</option>
-              <option>Alumni</option>
-            </select>
+              <option value="Student" {% if role == "Student" %}selected{% endif %}>Student</option>
+              <option value="Alumni" {% if role == "Alumni" %}selected{% endif %}>Alumni</option>
+            </select> 
           </div>
         <div class="form-group">
           <label>Email (required)</label>
-          <input type="email" placeholder="abc@gmail.com">
+          <input type="email" placeholder="abc@gmail.com" value= "{{email_id}}">
         </div>
         <div class="form-group">
           <label>LinkedIn Profile URL</label>
-          <input type="url" placeholder="paste link">
+          <input type="url" placeholder="paste link" value= "{{linkedin_url}}">
         </div>
         <div class="form-group">
           <label>GitHub profile URL</label>
-          <input type="text" placeholder="paste link">
+          <input type="text" placeholder="paste link" value= "{{github_url}}">
         </div>
       </div>
 
       <div class="bio">
         <h3>About the User</h3>
-        <textarea name="bio" placeholder="Tell us more about yourself!"></textarea>
+        <textarea name="bio" placeholder="Tell us more about yourself!">{{bio}}</textarea>
       </div>
     </div>
   </div>

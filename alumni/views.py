@@ -74,13 +74,13 @@ def create_account(request):
 # Module to Sign in
 def signindata(request):
     # Taking input from user using html form
-    email=request.POST.get('email').lower()
+    entered_email=request.POST.get('email').lower()
     password=request.POST.get('password')
     logged_user=None
     role=None
     # Finding the in User Table and taking the data into logged_user
     try:
-        logged_user=User.objects.get(email=email)
+        logged_user=User.objects.get(email=entered_email)
         role=logged_user.role
     except User.DoesNotExist:
         return render(request,'alumni/signin.html',{'flag':True}) #If not Found functon returns
@@ -195,3 +195,20 @@ def student(request):
             return render(request,'alumni/student.html')
         else:
             return render(request,'alumni/alumni.html')
+        
+# Module for My Profile data
+def myprofile(request):
+    user_email_id=request.session.get('email')
+    if(user_email_id==None):
+        return redirect(signin)
+    user=User.objects.get(email=user_email_id)
+    params={'grad_year':user.graduation_year,
+            'role':user.role,
+            'first_name':user.first_name,
+            'last_name':user.last_name,
+            'email_id':user_email_id,
+            'linkedin_url':'',
+            'github_url':'',
+            'bio':''}
+    return render(request,'alumni/studentprofile.html',params)
+    
