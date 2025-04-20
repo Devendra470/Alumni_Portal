@@ -5,16 +5,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Explore Our Community</title>
-<<<<<<< HEAD
-    <link rel="stylesheet" href="{% static 'style.css' %}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;600&display=swap" rel="stylesheet">
-=======
     <link rel="stylesheet" href="{% static 'style.css' %}" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
->>>>>>> ebf9216d2b841bf9744eebc61d8cfd434d30d931
     <script src="https://kit.fontawesome.com/YOUR_KIT_CODE.js" crossorigin="anonymous"></script>
   </head>
 
@@ -24,7 +16,7 @@
       <nav>
         <a href="https://ggits.org/">GGITS</a>
         <a href="#">Events</a>
-        <a href="#">About Us</a>
+        <a href="{% url 'about_us' %}">About Us</a>
         <a href="signin">Sign In</a>
       </nav>
     </header>
@@ -71,7 +63,7 @@
           <i class="fas fa-book-open" style="color: #B71C1C;"></i>
           <h2>Blog</h2>
           <p>Read and share stories, experiences, and insights from our college community.</p>
-          <!-- <a href="#">Read Blog →</a> -->
+           <a href="{% url 'blog' %}">Read Blog →</a>
         </div>
       </div>
     </section>

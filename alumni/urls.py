@@ -13,5 +13,7 @@ urlpatterns = [
     path('resend_otp',views.resend_otp,name='resend_otp'),
     path('password_reset',views.password_reset_page,name='password_reset'),
     path('change_password',views.passoword_reset,name='change_password'),
+    path('blog',views.blog,name='blog'),
+    path('about_us',views.about_us,name='about_us'),
     
 ]

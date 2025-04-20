@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from .models import User
 from django.contrib.auth.hashers import make_password,check_password
@@ -23,6 +23,10 @@ def signin(request):
 # Module to display password change page
 def password_reset_page(request):
     return render(request,'alumni/password_reset.html')
+
+# Module to display About Us page
+def about_us(request):
+    return render(request,'alumni/aboutus.html')
 
 # Module to Signup
 def create_account(request):
@@ -158,4 +162,10 @@ def passoword_reset(request):
           pass
     else:
          return render(request,'alumni/password_reset.html',{'flag': True})
-    
+     
+# Module to display blog page
+def blog(request):
+    if(request.session.get('user_id')==None):
+        return redirect(signin)
+    else:
+        return render(request,'alumni/blog1.html')
