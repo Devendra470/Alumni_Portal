@@ -169,3 +169,29 @@ def blog(request):
         return redirect(signin)
     else:
         return render(request,'alumni/blog1.html')
+
+
+
+# Module to display alumni page from homepage
+def alumni(request):
+    if(request.session.get('user_id')==None):
+        return redirect(signin)
+    else:
+        role=request.session.get('role')
+        if(role=='Alumni'):
+            return render(request,'alumni/alumni.html')
+        else:
+            return render(request,'alumni/student.html')
+  
+  
+    
+# Module to display student page from homepage   
+def student(request):
+    if(request.session.get('user_id')==None):
+        return redirect(signin)
+    else:
+        role=request.session.get('role')
+        if(role=='Student'):
+            return render(request,'alumni/student.html')
+        else:
+            return render(request,'alumni/alumni.html')

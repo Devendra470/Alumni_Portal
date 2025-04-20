@@ -15,5 +15,7 @@ urlpatterns = [
     path('change_password',views.passoword_reset,name='change_password'),
     path('blog',views.blog,name='blog'),
     path('about_us',views.about_us,name='about_us'),
+    path('alumni',views.alumni,name='alumni'),
+    path('student',views.student,name='student'),
     
 ]

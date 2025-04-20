@@ -17,7 +17,7 @@
         <a href="https://ggits.org/">GGITS</a>
         <a href="#">Events</a>
         <a href="{% url 'about_us' %}">About Us</a>
-        <a href="signin">Sign In</a>
+        <a href="{% url 'signin' %}">Sign In</a>
       </nav>
     </header>
     <section class="landingpage">
@@ -26,8 +26,8 @@
           <h1 class="display-4 fw-bold">Welcome to GYAN GANGA GROUP OF INSTITUTIONS Alumni Network</h1>
           <p>Connect with fellow alumni, students, and faculty. Share experiences, opportunities, and stay updated with college news.</p>
           <div class="buttons">
-            <a href="joinnetwork" class="btn primary">Join the Network →</a>
-            <a href="signin" class="btn secondary">Sign In</a>
+            <a href="{% url 'joinnetwork' %}" class="btn primary">Join the Network →</a>
+            <a href="{% url 'signin' %}" class="btn secondary">Sign In</a>
           </div>
         </div>
       </div>
@@ -42,14 +42,14 @@
           <i class="fas fa-graduation-cap" style="color:rgb(15, 8, 50);"></i>
           <h2>Alumni</h2>
           <p>Connect with graduates from all years and see where their journeys have taken them.</p>
-          <!-- <a href="#">View Alumni →</a> -->
+          <a href="{% url 'alumni' %}">View Alumni →</a>
         </div>
 
         <div class="card">
           <i class="fas fa-user-graduate" style="color: green;"></i>
           <h2>Students</h2>
           <p>Meet current students, learn about their projects, and offer mentorship opportunities.</p>
-          <!-- <a href="#">View Students →</a> -->
+          <a href="{% url 'student' %}">View Students →</a>
         </div>
 
         <div class="card">
@@ -63,7 +63,7 @@
           <i class="fas fa-book-open" style="color: #B71C1C;"></i>
           <h2>Blog</h2>
           <p>Read and share stories, experiences, and insights from our college community.</p>
-           <a href="{% url 'blog' %}">Read Blog →</a>
+          <a href="{% url 'blog' %}">Read Blog →</a>
         </div>
       </div>
     </section>
