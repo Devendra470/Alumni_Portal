@@ -24,6 +24,10 @@ def signin(request):
 def password_reset_page(request):
     return render(request,'alumni/password_reset.html')
 
+# Module to display About Us page
+def about_us(request):
+    return render(request,'alumni/aboutus.html')
+
 # Module to Signup
 def create_account(request):
     # Collecting Data from html form
