@@ -1,10 +1,4 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #fff;
-    color: #374151;
-    margin: 0;
-    padding: 2rem;
-  }
+
   
   .leadership {
     max-width: 1200px;
@@ -22,6 +16,7 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1.5rem;
+    padding: 1rem;
   }
   
   .card {
@@ -75,7 +70,7 @@ body {
   body {
     font-family: Arial, sans-serif;
     margin: 0;
-    padding: 2rem;
+    
     background-color: #fff;
     color: #374151;
   }
@@ -182,15 +177,15 @@ body {
   
   .overlay {
     background-color: rgba(0, 0, 0, 0.6); /* dark overlay */
-    width: 100%;
-    height: 100%;
+    width: 95%;
+    height: 95%;
     color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 1rem;
+    
   }
   
   .overlay h1 {
@@ -203,5 +198,46 @@ body {
     font-size: 1.2rem;
     max-width: 700px;
   }
-  
+
+  header {
+    background-color: #f9f9f9;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0px;
+    height: 776px 56px;
+
+}
+
+header h1 {
+    text-align: start;
+    padding: 4px;
+    padding-left: 15vh;
+    font-size: 1.5rem;
+    color: white;
+}
+
+nav {
+    display: flex;
+    padding-right: 15vh;
+    justify-content: end;
+}
+
+nav a {
+    margin: 0 15px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    transform: translateY(-5px);
+    /* box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); */
+    transition: all 0.4s ease;
+}
+
+h2{
+  padding: 2rem;
+}
   
