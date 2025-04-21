@@ -111,9 +111,15 @@
       <a href="{% url 'blog' %}">Blog</a>
       <a href="#">Events</a>
       <div class="profile-container">
+        {% if request.session.profile_pic %}
         <label for="dropdown-toggle"><img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdfQePuZXziXPa5hn909HZq5Q9aZtLwlF1Qg&s"
+            src="{{ request.session.profile_pic }}"
             alt="profile" class="profile-pic" /></label>
+          {% else %}
+          <div class="profile-placeholder">
+            {{ request.session.name|slice:":1"|upper }}
+        </div>
+          {% endif %}
         <div class="dropdown-menu">
           <a href="{% url 'myprofile' %}">My Profile</a>
           <a href="{% url 'myprofile' %}">Edit Profile</a>

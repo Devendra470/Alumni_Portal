@@ -90,7 +90,8 @@ def signindata(request):
         request.session['user_id']=logged_user.id
         request.session['email']=logged_user.email
         request.session['name']=logged_user.first_name
-        request.session['role']=role  
+        request.session['role']=role 
+        request.session['profile_pic']=logged_user.profile_pic.url if logged_user.profile_pic else None 
         if(role=='Alumni'):
             return render(request,'alumni/alumni.html',{'name':firstname})
         elif(role=='Student'):
@@ -188,7 +189,7 @@ def alumni(request):
 # Module to display student page from homepage   
 def student(request):
     if(request.session.get('user_id')==None):
-        return redirect(signin)
+        return redirect('signin')
     else:
         role=request.session.get('role')
         if(role=='Student'):
@@ -209,6 +210,8 @@ def myprofile(request):
             'email_id':user_email_id,
             'linkedin_url':'',
             'github_url':'',
-            'bio':''}
+            'bio':'',
+            'profile_url':user.profile_pic.url if user.profile_pic else None
+            }
     return render(request,'alumni/studentprofile.html',params)
     

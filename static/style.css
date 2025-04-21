@@ -55,7 +55,7 @@ nav a:hover {
     border-radius: 5px;
   }
   
-  .profile-pic {
+  .profile-pic, profile-placeholder {
     height: 35px;
     width: 35px;
     border-radius: 50%;

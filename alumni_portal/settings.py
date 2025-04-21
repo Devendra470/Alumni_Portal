@@ -132,9 +132,11 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
 
+MEDIA_URL='/media/'
+MEDIA_DIR=os.path.join(BASE_DIR,'media')
+
 
 # Sending email
-
 EMAIL_BACKEND=config('EMAIL_BACKEND')
 EMAIL_HOST=config('EMAIL_HOST')
 EMAIL_PORT=config('EMAIL_PORT',cast=int)
@@ -143,4 +145,4 @@ EMAIL_HOST_USER=config('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD=config('EMAIL_HOST_PASSWORD')
 
 # Session Expiry Time
-# SESSION_COOKIE_AGE=300
+SESSION_COOKIE_AGE=300

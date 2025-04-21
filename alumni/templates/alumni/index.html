@@ -22,15 +22,18 @@
       <a href="#">Events</a>
       <a href="{% url 'about_us' %}">About Us</a>
       {% if request.session.user_id %}
-      <div class="profile-container">
-        <label for="dropdown-toggle"><img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdfQePuZXziXPa5hn909HZq5Q9aZtLwlF1Qg&s"
-            alt="profile" class="profile-pic" /></label>
-        <div class="dropdown-menu">
-          <a href="{% url 'myprofile' %}">My Profile</a>
-          <a href="{% url 'myprofile' %}">Edit Profile</a>
-          <a href="{% url 'logout' %}">Logout</a>
-        </div>
+      {% if request.session.profile_pic %}
+      <label for="dropdown-toggle"><img src="{{ request.session.profile_pic }}" alt="profile"
+          class="profile-pic" /></label>
+      {% else %}
+      <div class="profile-placeholder">
+        {{ request.session.name|slice:":1"|upper }}
+      </div>
+      {% endif %}
+      <div class="dropdown-menu">
+        <a href="{% url 'myprofile' %}">My Profile</a>
+        <a href="{% url 'myprofile' %}">Edit Profile</a>
+        <a href="{% url 'logout' %}">Logout</a>
       </div>
       {% else %}
       <a href="{% url 'signin' %}">Sign In</a>
