@@ -1,208 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
-  {% load static %}
+{% load static %}
 
-  <head>
-    <meta charset="UTF-8" />
-    <title>Alumni Connect</title>
-    <link rel="stylesheet" href="{% static 'alumni.css' %}" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://kit.fontawesome.com/YOUR_KIT_CODE.js" crossorigin="anonymous"></script>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-      }
-      
-      section,
-      footer {
-        padding: 20px;
-      }
-      
-      .hero {
-        text-align: center;
-        padding: 80px 20px;
-        background: #ccc;
-      }
-      
-      .tabs {
-        display: flex;
-        justify-content: space-around;
-        background: #f0f0f0;
-      }
-      
-      .tab {
-        padding: 15px;
-        cursor: pointer;
-        font-weight: bold;
-      }
-      
-      .cards {
-        display: flex;
-        justify-content: space-around;
-        padding: 40px 20px;
-        background: #fff;
-      }
-      
-      .card {
-        border: 1px solid #ddd;
-        padding: 20px;
-        width: 20%;
-        border-radius: 10px;
-      }
-      
-      .spotlight {
-        text-align: center;
-        background: #f4f8fc;
-        padding: 30px 20px;
-      }
-      
-      .spotlight-grid {
-        display: flex;
-        justify-content: space-around;
-        margin-top: 20px;
-      }
-      
-      .spotlight-card {
-        width: 20%;
-        background: #fff;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 0 5px #ddd;
-      }
-      
-      .cta {
-        text-align: center;
-        background: #f4f8fc;
-        padding: 40px 20px;
-      }
-      
-      .cta button {
-        margin: 10px;
-        padding: 12px 25px;
-        font-size: 16px;
-        border-radius: 5px;
-        border: none;
-        cursor: pointer;
-      }
-      
-      .dark-btn {
-        background: #111;
-        color: #fff;
-      }
-      
-      .light-btn {
-        background: #fff;
-        border: 1px solid #ccc;
-      }
-    </style>
-  </head>
-  <body>
-    <header style="background-color: #303030">
-      <h1><i class="fa-solid fa-graduation-cap" style="color: white; "></i>Alumni Connect</h1>
-      <nav>
-        <a href="/">Home</a>
-        <a href="#">Alumni</a>
-        <a href="{% url 'blog' %}">Blog</a>
-        <a href="#">Events</a>
-        <div class="profile-container">
-          <label for="dropdown-toggle"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdfQePuZXziXPa5hn909HZq5Q9aZtLwlF1Qg&s" alt="profile" class="profile-pic" /></label>
-          <div class="dropdown-menu">
-            <a href="{% url 'myprofile' %}">My Profile</a>
-            <a href="{% url 'myprofile' %}">Edit Profile</a>
-            <a href="{% url 'logout' %}">Logout</a>
-          </div>
+<head>
+  <meta charset="UTF-8" />
+  <title>Alumni Connect</title>
+  <link rel="stylesheet" href="{% static 'alumni.css' %}" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://kit.fontawesome.com/YOUR_KIT_CODE.js" crossorigin="anonymous"></script>
+  <script src="{%static 'js/profile.js' %}"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    section,
+    footer {
+      padding: 20px;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 80px 20px;
+      background: #ccc;
+    }
+
+    .tabs {
+      display: flex;
+      justify-content: space-around;
+      background: #f0f0f0;
+    }
+
+    .tab {
+      padding: 15px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .cards {
+      display: flex;
+      justify-content: space-around;
+      padding: 40px 20px;
+      background: #fff;
+    }
+
+    .card {
+      border: 1px solid #ddd;
+      padding: 20px;
+      width: 20%;
+      border-radius: 10px;
+    }
+
+    .spotlight {
+      text-align: center;
+      background: #f4f8fc;
+      padding: 30px 20px;
+    }
+
+    .spotlight-grid {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 20px;
+    }
+
+    .spotlight-card {
+      width: 20%;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 5px #ddd;
+    }
+
+    .cta {
+      text-align: center;
+      background: #f4f8fc;
+      padding: 40px 20px;
+    }
+
+    .cta button {
+      margin: 10px;
+      padding: 12px 25px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .dark-btn {
+      background: #111;
+      color: #fff;
+    }
+
+    .light-btn {
+      background: #fff;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+
+<body>
+  <header style="background-color: #303030">
+    <h1><i class="fa-solid fa-graduation-cap" style="color: white; "></i>Alumni Connect</h1>
+    <nav>
+      <a href="/">Home</a>
+      <a href="#">Alumni</a>
+      <a href="{% url 'blog' %}">Blog</a>
+      <a href="#">Events</a>
+      <div class="profile-container">
+        <label for="dropdown-toggle"><img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdfQePuZXziXPa5hn909HZq5Q9aZtLwlF1Qg&s"
+            alt="profile" class="profile-pic" /></label>
+        <div class="dropdown-menu">
+          <a href="{% url 'myprofile' %}">My Profile</a>
+          <a href="{% url 'myprofile' %}">Edit Profile</a>
+          <a href="{% url 'logout' %}">Logout</a>
         </div>
-      </nav>
-    </header>
+      </div>
+    </nav>
+  </header>
 
-    <section class="hero">
-      <h1>For Alumni</h1>
-      <p>Stay connected with your alma mater, fellow graduates, and current students.</p>
-    </section>
+  <section class="hero">
+    <h1>For Alumni</h1>
+    <p>Stay connected with your alma mater, fellow graduates, and current students.</p>
+  </section>
 
-    <div class="tabs">
-      <div class="tab">Connect</div>
-      <div class="tab">Events</div>
-      <div class="tab">Benefits</div>
+  <div class="tabs">
+    <div class="tab">Connect</div>
+    <div class="tab">Events</div>
+    <div class="tab">Benefits</div>
+  </div>
+
+  <section class="cards">
+    <div class="card">
+      <h3>Alumni Directory</h3>
+      <p>Find and connect with fellow graduates.</p>
+      <p>Search our comprehensive alumni directory to find and reconnect with classmates and fellow graduates.</p>
+      <button class="light-btn">Browse Directory</button>
     </div>
+    <div class="card">
+      <h3>Regional Networks</h3>
+      <p>Connect with alumni in your area.</p>
+      <p>Join regional alumni networks to meet graduates living in your area and attend local events.</p>
+      <button class="light-btn">Find Your Network</button>
+    </div>
+    <div class="card">
+      <h3>Professional Groups</h3>
+      <p>Connect with alumni in your industry.</p>
+      <p>Join industry-specific alumni groups to network with graduates working in your field.</p>
+      <button class="light-btn">Browse Groups</button>
+    </div>
+  </section>
 
-    <section class="cards">
-      <div class="card">
-        <h3>Alumni Directory</h3>
-        <p>Find and connect with fellow graduates.</p>
-        <p>Search our comprehensive alumni directory to find and reconnect with classmates and fellow graduates.</p>
-        <button class="light-btn">Browse Directory</button>
+  <section class="spotlight">
+    <h2>Alumni Spotlight</h2>
+    <div class="spotlight-grid">
+      <div class="spotlight-card">
+        <h3>John Smith</h3>
+        <p>Class of 2005</p>
+        <p>
+          <strong>Current Position:</strong> CEO at Tech Innovations
+        </p>
+        <p>"My education at the university provided me with the foundation I needed to succeed in my career..."</p>
       </div>
-      <div class="card">
-        <h3>Regional Networks</h3>
-        <p>Connect with alumni in your area.</p>
-        <p>Join regional alumni networks to meet graduates living in your area and attend local events.</p>
-        <button class="light-btn">Find Your Network</button>
+      <div class="spotlight-card">
+        <h3>John Smith</h3>
+        <p>Class of 2010</p>
+        <p>
+          <strong>Current Position:</strong> CEO at Tech Innovations
+        </p>
+        <p>"The connections I made during my time there continue to be valuable to this day."</p>
       </div>
-      <div class="card">
-        <h3>Professional Groups</h3>
-        <p>Connect with alumni in your industry.</p>
-        <p>Join industry-specific alumni groups to network with graduates working in your field.</p>
-        <button class="light-btn">Browse Groups</button>
+      <div class="spotlight-card">
+        <h3>John Smith</h3>
+        <p>Class of 2015</p>
+        <p>
+          <strong>Current Position:</strong> CEO at Tech Innovations
+        </p>
+        <p>"The connections I made during my time there continue to be valuable to this day."</p>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="spotlight">
-      <h2>Alumni Spotlight</h2>
-      <div class="spotlight-grid">
-        <div class="spotlight-card">
-          <h3>John Smith</h3>
-          <p>Class of 2005</p>
-          <p>
-            <strong>Current Position:</strong> CEO at Tech Innovations
-          </p>
-          <p>"My education at the university provided me with the foundation I needed to succeed in my career..."</p>
-        </div>
-        <div class="spotlight-card">
-          <h3>John Smith</h3>
-          <p>Class of 2010</p>
-          <p>
-            <strong>Current Position:</strong> CEO at Tech Innovations
-          </p>
-          <p>"The connections I made during my time there continue to be valuable to this day."</p>
-        </div>
-        <div class="spotlight-card">
-          <h3>John Smith</h3>
-          <p>Class of 2015</p>
-          <p>
-            <strong>Current Position:</strong> CEO at Tech Innovations
-          </p>
-          <p>"The connections I made during my time there continue to be valuable to this day."</p>
-        </div>
-      </div>
-    </section>
+  <section class="cta">
+    <h2>Stay Connected</h2>
+    <p>Update your alumni profile to stay connected with your alma mater and fellow graduates.</p>
+    <button class="dark-btn">Update Your Profile</button>
+    <button class="light-btn">Get Involved</button>
+  </section>
+</body>
 
-    <section class="cta">
-      <h2>Stay Connected</h2>
-      <p>Update your alumni profile to stay connected with your alma mater and fellow graduates.</p>
-      <button class="dark-btn">Update Your Profile</button>
-      <button class="light-btn">Get Involved</button>
-    </section>
-    <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        const profilePic = document.querySelector('.profile-pic')
-        const dropdownMenu = document.querySelector('.dropdown-menu')
-      
-        // Toggle dropdown visibility on profile pic click
-        profilePic.addEventListener('click', function (event) {
-          event.stopPropagation() // Prevent the event from propagating to the document
-          dropdownMenu.classList.toggle('show') // Toggle visibility
-        })
-      
-        // Close dropdown if clicked outside the profile picture or dropdown menu
-        document.addEventListener('click', function (event) {
-          if (!profilePic.contains(event.target) && !dropdownMenu.contains(event.target)) {
-            dropdownMenu.classList.remove('show')
-          }
-        })
-      })
-    </script>
-  </body>
 </html>

@@ -1,95 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-  {% load static %}
+{% load static %}
 
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>University Alumni</title>
-    <link rel="stylesheet" href="{% static 'student.css' %}" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://kit.fontawesome.com/YOUR_KIT_CODE.js" crossorigin="anonymous"></script>
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>University Alumni</title>
+  <link rel="stylesheet" href="{% static 'student.css' %}" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://kit.fontawesome.com/YOUR_KIT_CODE.js" crossorigin="anonymous"></script>
+  <script src="{%static 'js/profile.js' %}"></script>
+</head>
 
-  <body>
-    <header style="background-color: #303030">
-      <h1><i class="fa-solid fa-graduation-cap" style="color: white; "></i>Alumni Connect</h1>
-      <nav>
-        <a href="/">Home</a>
-        <a href="#">Alumni</a>
-        <a href="{% url 'blog' %}">Blog</a>
-        <a href="#">Events</a>
-        <div class="profile-container">
-          <label for="dropdown-toggle"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdfQePuZXziXPa5hn909HZq5Q9aZtLwlF1Qg&s" alt="profile" class="profile-pic" /></label>
-          <div class="dropdown-menu">
-            <a href="{% url 'myprofile' %}">My Profile</a>
-            <a href="{% url 'myprofile' %}">Edit Profile</a>
-            <a href="{% url 'logout' %}">Logout</a>
-          </div>
+<body>
+  <header style="background-color: #303030">
+    <h1><i class="fa-solid fa-graduation-cap" style="color: white; "></i>Alumni Connect</h1>
+    <nav>
+      <a href="/">Home</a>
+      <a href="#">Alumni</a>
+      <a href="{% url 'blog' %}">Blog</a>
+      <a href="#">Events</a>
+      <div class="profile-container">
+        <label for="dropdown-toggle"><img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdfQePuZXziXPa5hn909HZq5Q9aZtLwlF1Qg&s"
+            alt="profile" class="profile-pic" /></label>
+        <div class="dropdown-menu">
+          <a href="{% url 'myprofile' %}">My Profile</a>
+          <a href="{% url 'myprofile' %}">Edit Profile</a>
+          <a href="{% url 'logout' %}">Logout</a>
         </div>
-      </nav>
-    </header>
+      </div>
+    </nav>
+  </header>
 
-    <div class="tabs">
-      <button class="tab active">Opportunities</button>
-      <button class="tab">Mentorship</button>
-      <button class="tab">Events</button>
-      <button class="tab">Resources</button>
+  <div class="tabs">
+    <button class="tab active">Opportunities</button>
+    <button class="tab">Mentorship</button>
+    <button class="tab">Events</button>
+    <button class="tab">Resources</button>
+  </div>
+
+  <section class="cards">
+    <div class="card">
+      <div class="icon">👜</div>
+      <h3>Internships</h3>
+      <p>Find internship opportunities with our alumni network.</p>
+      <p>Access exclusive internship opportunities posted by our alumni working in various industries.</p>
+      <a href="#" class="card-btn">Browse Internships</a>
     </div>
 
-    <section class="cards">
-      <div class="card">
-        <div class="icon">👜</div>
-        <h3>Internships</h3>
-        <p>Find internship opportunities with our alumni network.</p>
-        <p>Access exclusive internship opportunities posted by our alumni working in various industries.</p>
-        <a href="#" class="card-btn">Browse Internships</a>
-      </div>
+    <div class="card">
+      <div class="icon">🎓</div>
+      <h3>Job Placements</h3>
+      <p>Entry-level positions for recent graduates.</p>
+      <p>Discover job opportunities specifically targeted at recent graduates and final-year students.</p>
+      <a href="#" class="card-btn">View Job Listings</a>
+    </div>
 
-      <div class="card">
-        <div class="icon">🎓</div>
-        <h3>Job Placements</h3>
-        <p>Entry-level positions for recent graduates.</p>
-        <p>Discover job opportunities specifically targeted at recent graduates and final-year students.</p>
-        <a href="#" class="card-btn">View Job Listings</a>
-      </div>
+    <div class="card">
+      <div class="icon">🎖️</div>
+      <h3>Scholarships</h3>
+      <p>Financial support from alumni donors.</p>
+      <p>Apply for scholarships and grants funded by generous alumni to support your education.</p>
+      <a href="#" class="card-btn">Explore Scholarships</a>
+    </div>
+  </section>
 
-      <div class="card">
-        <div class="icon">🎖️</div>
-        <h3>Scholarships</h3>
-        <p>Financial support from alumni donors.</p>
-        <p>Apply for scholarships and grants funded by generous alumni to support your education.</p>
-        <a href="#" class="card-btn">Explore Scholarships</a>
-      </div>
-    </section>
+  <section class="cta">
+    <h2>Ready to Connect with Alumni?</h2>
+    <p>Create your student profile to access all alumni resources, mentorship opportunities, and exclusive events.</p>
+    <div class="cta-buttons">
+      <a href="#" class="cta-primary">Create Student Profile</a>
+      <a href="#" class="cta-secondary">Browse Alumni Directory</a>
+    </div>
+  </section>
+</body>
 
-    <section class="cta">
-      <h2>Ready to Connect with Alumni?</h2>
-      <p>Create your student profile to access all alumni resources, mentorship opportunities, and exclusive events.</p>
-      <div class="cta-buttons">
-        <a href="#" class="cta-primary">Create Student Profile</a>
-        <a href="#" class="cta-secondary">Browse Alumni Directory</a>
-      </div>
-    </section>
-  </body>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const profilePic = document.querySelector('.profile-pic')
-      const dropdownMenu = document.querySelector('.dropdown-menu')
-    
-      // Toggle dropdown visibility on profile pic click
-      profilePic.addEventListener('click', function (event) {
-        event.stopPropagation() // Prevent the event from propagating to the document
-        dropdownMenu.classList.toggle('show') // Toggle visibility
-      })
-    
-      // Close dropdown if clicked outside the profile picture or dropdown menu
-      document.addEventListener('click', function (event) {
-        if (!profilePic.contains(event.target) && !dropdownMenu.contains(event.target)) {
-          dropdownMenu.classList.remove('show')
-        }
-      })
-    })
-  </script>
 </html>

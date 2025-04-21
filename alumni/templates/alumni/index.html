@@ -1,71 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    {% load static %}
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Explore Our Community</title>
-    <link rel="stylesheet" href="{% static 'style.css' %}" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://kit.fontawesome.com/YOUR_KIT_CODE.js" crossorigin="anonymous"></script>
-  </head>
 
-  <body>
-    <header style="background-color: #303030">
-      <h1><i class="fa-solid fa-graduation-cap" style="color: white; "></i>Alumni Connect</h1>
-      <nav>
-        <a href="https://ggits.org/">GGITS</a>
-        <a href="#">Events</a>
-        <a href="{% url 'about_us' %}">About Us</a>
-        <a href="{% url 'signin' %}">Sign In</a>
-      </nav>
-    </header>
-    <section class="landingpage">
-      <div class="hero">
-        <div>
-          <h1 class="display-4 fw-bold">Welcome to GYAN GANGA GROUP OF INSTITUTIONS Alumni Network</h1>
-          <p>Connect with fellow alumni, students, and faculty. Share experiences, opportunities, and stay updated with college news.</p>
-          <div class="buttons">
-            <a href="{% url 'joinnetwork' %}" class="btn primary">Join the Network →</a>
-            <a href="{% url 'signin' %}" class="btn secondary">Sign In</a>
-          </div>
+<head>
+  {% load static %}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Explore Our Community</title>
+  <link rel="stylesheet" href="{% static 'style.css' %}" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://kit.fontawesome.com/YOUR_KIT_CODE.js" crossorigin="anonymous"></script>
+  <script src="{%static 'js/profile.js' %}"></script>
+</head>
+
+<body>
+  <header style="background-color: #303030">
+    <h1><i class="fa-solid fa-graduation-cap" style="color: white; "></i>Alumni Connect</h1>
+    <nav>
+      <a href="https://ggits.org/">GGITS</a>
+      <a href="#">Events</a>
+      <a href="{% url 'about_us' %}">About Us</a>
+      {% if request.session.user_id %}
+      <div class="profile-container">
+        <label for="dropdown-toggle"><img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdfQePuZXziXPa5hn909HZq5Q9aZtLwlF1Qg&s"
+            alt="profile" class="profile-pic" /></label>
+        <div class="dropdown-menu">
+          <a href="{% url 'myprofile' %}">My Profile</a>
+          <a href="{% url 'myprofile' %}">Edit Profile</a>
+          <a href="{% url 'logout' %}">Logout</a>
         </div>
       </div>
-    </section>
+      {% else %}
+      <a href="{% url 'signin' %}">Sign In</a>
+      {%endif %}
 
-    <section class="community-section">
-      <h1>Explore Our Community</h1>
-      <p>Discover the diverse sections of our portal, each designed to connect different members of our college community.</p>
-
-      <div class="cards-container">
-        <div class="card">
-          <i class="fas fa-graduation-cap" style="color:rgb(15, 8, 50);"></i>
-          <h2>Alumni</h2>
-          <p>Connect with graduates from all years and see where their journeys have taken them.</p>
-          <a href="{% url 'alumni' %}">View Alumni →</a>
-        </div>
-
-        <div class="card">
-          <i class="fas fa-user-graduate" style="color: green;"></i>
-          <h2>Students</h2>
-          <p>Meet current students, learn about their projects, and offer mentorship opportunities.</p>
-          <a href="{% url 'student' %}">View Students →</a>
-        </div>
-
-        <div class="card">
-          <i class="fas fa-user-tie" style="color:slateblue;"></i>
-          <h2>Faculty</h2>
-          <p>Discover our esteemed faculty members, their research, and teaching achievements.</p>
-          <!-- <a href="#">View Faculty →</a> -->
-        </div>
-
-        <div class="card">
-          <i class="fas fa-book-open" style="color: #B71C1C;"></i>
-          <h2>Blog</h2>
-          <p>Read and share stories, experiences, and insights from our college community.</p>
-          <a href="{% url 'blog' %}">Read Blog →</a>
+    </nav>
+  </header>
+  <section class="landingpage">
+    <div class="hero">
+      <div>
+        <h1 class="display-4 fw-bold">Welcome to GYAN GANGA GROUP OF INSTITUTIONS Alumni Network</h1>
+        <p>Connect with fellow alumni, students, and faculty. Share experiences, opportunities, and stay updated with
+          college news.</p>
+        <div class="buttons">
+          <a href="{% url 'joinnetwork' %}" class="btn primary">Join the Network →</a>
+          <a href="{% url 'signin' %}" class="btn secondary">Sign In</a>
         </div>
       </div>
-    </section>
-  </body>
+    </div>
+  </section>
+
+  <section class="community-section">
+    <h1>Explore Our Community</h1>
+    <p>Discover the diverse sections of our portal, each designed to connect different members of our college community.
+    </p>
+
+    <div class="cards-container">
+      <div class="card">
+        <i class="fas fa-graduation-cap" style="color:rgb(15, 8, 50);"></i>
+        <h2>Alumni</h2>
+        <p>Connect with graduates from all years and see where their journeys have taken them.</p>
+        <a href="{% url 'alumni' %}">View Alumni →</a>
+      </div>
+
+      <div class="card">
+        <i class="fas fa-user-graduate" style="color: green;"></i>
+        <h2>Students</h2>
+        <p>Meet current students, learn about their projects, and offer mentorship opportunities.</p>
+        <a href="{% url 'student' %}">View Students →</a>
+      </div>
+
+      <div class="card">
+        <i class="fas fa-user-tie" style="color:slateblue;"></i>
+        <h2>Faculty</h2>
+        <p>Discover our esteemed faculty members, their research, and teaching achievements.</p>
+        <!-- <a href="#">View Faculty →</a> -->
+      </div>
+
+      <div class="card">
+        <i class="fas fa-book-open" style="color: #B71C1C;"></i>
+        <h2>Blog</h2>
+        <p>Read and share stories, experiences, and insights from our college community.</p>
+        <a href="{% url 'blog' %}">Read Blog →</a>
+      </div>
+    </div>
+  </section>
+</body>
+
 </html>

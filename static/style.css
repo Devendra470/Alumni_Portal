@@ -15,7 +15,7 @@ header {
     align-items: center;
     position: sticky;
     top: 0px;
-    height: 776px 56px;
+    height: 72.15px;
 
 }
 
@@ -31,6 +31,7 @@ nav {
     display: flex;
     padding-right: 15vh;
     justify-content: end;
+    align-items: center;
 }
 
 nav a {
@@ -42,9 +43,59 @@ nav a {
 
 nav a:hover {
     transform: translateY(-5px);
-    /* box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); */
     transition: all 0.4s ease;
 }
+
+/* Profile Section */
+
+.profile-container {
+    position: relative;
+    display: inline-block;
+    border-color: white;
+    border-radius: 5px;
+  }
+  
+  .profile-pic {
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    border-color: white;
+  }
+  
+  .dropdown-menu {
+    position: absolute;
+    right: 0;
+    top: 45px;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: max-content;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+  }
+  
+  .dropdown-menu a {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #333;
+  }
+  
+  .dropdown-menu.show {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease, visibility 0s;
+  }
+  
+  .dropdown-menu a:hover {
+    transition: all 0.4s ease;
+    transform: translateY(-5px);
+  }
 
 /* Section Styling */
 .community-section {
