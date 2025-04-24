@@ -57,13 +57,25 @@ nav a:hover {
   border-radius: 5px;
 }
 
-.profile-pic,
-profile-palceholder {
+.profile-pic {
   height: 35px;
   width: 35px;
   border-radius: 50%;
   cursor: pointer;
   display: flex;
+}
+.profile-placeholder {
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  border-color: white;
+  background: white;
+  align-items: center;
+  justify-content: space-around;
+  font-size: large;
+  font-weight: bold;
 }
 
 .dropdown-menu {

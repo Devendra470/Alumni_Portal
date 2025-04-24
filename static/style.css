@@ -53,18 +53,32 @@ nav a:hover {
     display: inline-block;
     border-color: white;
     border-radius: 5px;
-  }
-  
-  .profile-pic, profile-placeholder {
+}
+
+.profile-pic {
     height: 35px;
     width: 35px;
     border-radius: 50%;
     cursor: pointer;
     display: flex;
     border-color: white;
-  }
-  
-  .dropdown-menu {
+}
+
+.profile-placeholder {
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    border-color: white;
+    background: white;
+    align-items: center;
+    justify-content: space-around;
+    font-size: large;
+    font-weight: bold;
+}
+
+.dropdown-menu {
     position: absolute;
     right: 0;
     top: 45px;
@@ -77,25 +91,25 @@ nav a:hover {
     transition: opacity 0.3s ease;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     z-index: 10;
-  }
-  
-  .dropdown-menu a {
+}
+
+.dropdown-menu a {
     display: block;
     padding: 10px 15px;
     text-decoration: none;
     color: #333;
-  }
-  
-  .dropdown-menu.show {
+}
+
+.dropdown-menu.show {
     opacity: 1;
     visibility: visible;
     transition: opacity 0.3s ease, visibility 0s;
-  }
-  
-  .dropdown-menu a:hover {
+}
+
+.dropdown-menu a:hover {
     transition: all 0.4s ease;
     transform: translateY(-5px);
-  }
+}
 
 /* Section Styling */
 .community-section {
@@ -218,7 +232,7 @@ nav a:hover {
     left: 0;
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
-    z-index: -1;    
+    z-index: -1;
 }
 
 .hero {
