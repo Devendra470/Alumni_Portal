@@ -10,7 +10,9 @@ from django.conf import settings
 
 # Displaying Homepage
 def homepage(request):
-    return render(request,'alumni/index.html')
+    profile_pic = request.session.get('profile_pic')    
+    params={'profile_pic':profile_pic}
+    return render(request,'alumni/index.html',params)
 
 # Displaying Signup Page
 def signup(request):
@@ -179,6 +181,7 @@ def alumni(request):
         return redirect(signin)
     else:
         role=request.session.get('role')
+        
         if(role=='Alumni'):
             return render(request,'alumni/alumni.html')
         else:
@@ -214,4 +217,27 @@ def myprofile(request):
             'profile_url':user.profile_pic.url if user.profile_pic else None
             }
     return render(request,'alumni/studentprofile.html',params)
-    
+
+# Module for updating profile
+def profileupdate(request):
+    if (request.method=='POST'):
+        profile_pic=request.FILES.get('profile_pic')
+        user_id=request.session.get('user_id')
+        if not user_id:
+            return redirect(signin)
+        user=User.objects.get(id=user_id)
+        if profile_pic:
+            user.profile_pic=profile_pic
+        user.username=request.POST.get('username')   
+        user.grad_year=request.POST.get('grad_year')
+        user.firstname=request.POST.get('first_name')
+        user.lastname=request.POST.get('last_name')
+        user.role=request.POST.get('role')
+        user.linkedinurl=request.POST.get('linkedin_url')
+        user.githuburl=request.POST.get('github_url')
+        user.bio=request.POST.get('bio')
+        user.save()
+        request.session['profile_pic']=user.profile_pic.url if user.profile_pic.url else None
+        return render(request,'alumni/studentprofile.html')
+    else:
+        return HttpResponse("404 Not Allowed")

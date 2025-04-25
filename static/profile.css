@@ -35,7 +35,7 @@ body {
   border: none;
   cursor: pointer;
   border-radius: 5px;
-}
+} 
 
 .sidebar input {
   width: 90%;
@@ -191,4 +191,67 @@ nav a:hover {
 .dropdown-menu a:hover {
   transition: all 0.4s ease;
   transform: translateY(-5px);
+}
+
+.img {
+  text-align: center;
+  margin-bottom: 20px;
+  margin-left: 90px;
+}
+
+.img img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  /* Make the image perfectly round */
+  object-fit: cover;
+  /* Zooms/crops to fill circle */
+  border: 2px solid #ccc;
+}
+
+#file-input {
+  display: block;
+  margin: 10px auto;
+  /* Center the file input */
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+}
+
+.submit-button {
+  float: right;
+  padding: 12px 24px;
+  background-color: #4CAF50;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 20px;
+}
+
+.submit-button:hover {
+  background-color: #45a049;
+  transform: scale(1.05);
+}
+
+.submit-button:active {
+  background-color: #3e8e41;
+  transform: scale(0.98);
+}
+
+.text-img{
+  width: 150px;
+  height: 150px;
+  background-color: #aaa;
+  border-radius: 50%;
+  font-size: 50px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;  
 }

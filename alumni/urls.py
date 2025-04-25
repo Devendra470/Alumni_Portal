@@ -19,7 +19,8 @@ urlpatterns = [
     path('about_us',views.about_us,name='about_us'),
     path('alumni',views.alumni,name='alumni'),
     path('student',views.student,name='student'),
-    path('myprofile',views.myprofile,name='myprofile')
+    path('myprofile',views.myprofile,name='myprofile'),
+    path('profileupdate',views.profileupdate,name='profileupdate'),
     
 ]
 if(settings.DEBUG):

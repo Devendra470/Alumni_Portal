@@ -22,7 +22,7 @@
       <a href="#">Events</a>
       <a href="{% url 'about_us' %}">About Us</a>
       {% if request.session.user_id %}
-      {% if request.session.profile_pic %}
+      {% if profile_pic %}
       <label for="dropdown-toggle"><img src="{{ request.session.profile_pic }}" alt="profile"
           class="profile-pic" /></label>
       {% else %}
