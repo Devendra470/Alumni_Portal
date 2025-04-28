@@ -21,6 +21,7 @@ urlpatterns = [
     path('student',views.student,name='student'),
     path('myprofile',views.myprofile,name='myprofile'),
     path('profileupdate',views.profileupdate,name='profileupdate'),
+    path('events',views.events,name='events'),
     
 ]
 if(settings.DEBUG):

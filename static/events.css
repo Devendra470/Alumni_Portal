@@ -1,0 +1,160 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background-color: #f9f9f9;
+}
+
+/* Header */
+/* header styling */
+header {
+    background-color: #f9f9f9;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0px;
+    height: 72.15px;
+
+}
+
+header h1 {
+    text-align: start;
+    padding: 4px;
+    padding-left: 15vh;
+    font-size: 1.5rem;
+    color: white;
+}
+
+nav {
+    display: flex;
+    padding-right: 15vh;
+    justify-content: end;
+    align-items: center;
+}
+
+nav a {
+    margin: 0 15px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    transform: translateY(-5px);
+    transition: all 0.4s ease;
+}
+
+/* Profile Section */
+
+.profile-container {
+    position: relative;
+    display: inline-block;
+    border-color: white;
+    border-radius: 5px;
+}
+
+.profile-pic {
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    border-color: white;
+}
+
+.profile-placeholder {
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    border-color: white;
+    background: white;
+    align-items: center;
+    justify-content: space-around;
+    font-size: large;
+    font-weight: bold;
+}
+
+.dropdown-menu {
+    position: absolute;
+    right: 0;
+    top: 45px;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: max-content;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #333;
+}
+
+.dropdown-menu.show {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease, visibility 0s;
+}
+
+.dropdown-menu a:hover {
+    transition: all 0.4s ease;
+    transform: translateY(-5px);
+}
+
+/* Events */
+.events {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 40px 20px;
+    gap: 30px;
+}
+
+.event-card {
+    background-color: rgb(192, 192, 207);
+    width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    padding: 20px;
+    border-top: 5px solid #ddd;
+    transition: transform 0.3s;
+}
+
+.event-card:hover {
+    transform: translateY(-5px);
+}
+
+.reunion {
+    border-top-color: #000000;
+}
+
+.networking {
+    border-top-color: #000000;
+}
+
+.social {
+    border-top-color: #000000;
+}
+
+.event-card h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.event-card p {
+    font-size: 14px;
+    margin: 5px 0;
+}

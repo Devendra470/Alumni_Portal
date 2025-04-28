@@ -30,6 +30,12 @@ def password_reset_page(request):
 def about_us(request):
     return render(request,'alumni/aboutus.html')
 
+# Module to display events page
+def events(request):
+    profile_pic = request.session.get('profile_pic')    
+    params={'profile_pic':profile_pic}
+    return render(request,'alumni/events.html',params)
+
 # Module to Signup
 def create_account(request):
     # Collecting Data from html form

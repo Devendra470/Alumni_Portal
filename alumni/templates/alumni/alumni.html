@@ -109,7 +109,7 @@
       <a href="/">Home</a>
       <a href="#">Alumni</a>
       <a href="{% url 'blog' %}">Blog</a>
-      <a href="#">Events</a>
+      <a href="{% url 'events' %}">Events</a>
       <div class="profile-container">
         {% if request.session.profile_pic %}
         <label for="dropdown-toggle"><img

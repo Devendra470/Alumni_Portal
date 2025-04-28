@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+    <link rel="stylesheet" href="{% static 'events.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://kit.fontawesome.com/YOUR_KIT_CODE.js" crossorigin="anonymous"></script>
+    <script src="{%static 'js/profile.js' %}"></script>
+</head>
+
+<body>
+    <header style="background-color: #303030">
+        <h1><i class="fa-solid fa-graduation-cap" style="color: white; "></i>Alumni Connect</h1>
+        <nav>
+            <a href="https://ggits.org/">GGITS</a>
+            <a href="#">Events</a>
+            <a href="{% url 'about_us' %}">About Us</a>
+            {% if request.session.user_id %}
+            {% if profile_pic %}
+            <label for="dropdown-toggle"><img src="{{ request.session.profile_pic }}" alt="profile"
+                    class="profile-pic" /></label>
+            {% else %}
+            <div class="profile-placeholder">
+                {{ request.session.name|slice:":1"|upper }}
+            </div>
+            {% endif %}
+            <div class="dropdown-menu">
+                <a href="{% url 'myprofile' %}">My Profile</a>
+                <a href="{% url 'myprofile' %}">Edit Profile</a>
+                <a href="{% url 'logout' %}">Logout</a>
+            </div>
+            {% else %}
+            <a href="{% url 'signin' %}">Sign In</a>
+            {%endif %}
+
+        </nav>
+    </header>
+
+    <section class="events">
+        <div class="event-card reunion">
+            <h2>Annual Alumni Reunion</h2>
+            <p>📅 May 15, 2025 | 🕕 6:00 PM - 10:00 PM</p>
+            <p>📍 University Grand Hall</p>
+            <p>Enjoy a reunion night full of dinner, networking, and special guest speakers!</p>
+        </div>
+
+        <div class="event-card networking">
+            <h2>Career Networking Mixer</h2>
+            <p>📅 June 5, 2025 | 🕖 7:00 PM - 9:00 PM</p>
+            <p>📍 Downtown Conference Center</p>
+            <p>Meet and connect with fellow alumni from your industry for networking opportunities.</p>
+        </div>
+
+        <div class="event-card social">
+            <h2>Homecoming Weekend</h2>
+            <p>📅 October 10-12, 2025 | 🕰 Various Times</p>
+            <p>📍 University Campus</p>
+            <p>Enjoy football games, campus tours, and department open houses at the alumni event!</p>
+        </div>
+
+        <div class="event-card networking">
+            <h2>Career Networking Mixer</h2>
+            <p>📅 June 5, 2025 | 🕖 7:00 PM - 9:00 PM</p>
+            <p>📍 Downtown Conference Center</p>
+            <p>Meet and connect with fellow alumni from your industry for networking opportunities.</p>
+        </div>
+
+        <div class="event-card social">
+            <h2>Homecoming Weekend</h2>
+            <p>📅 October 10-12, 2025 | 🕰 Various Times</p>
+            <p>📍 University Campus</p>
+            <p>Enjoy football games, campus tours, and department open houses at the alumni event!</p>
+        </div>
+
+        <div class="event-card reunion">
+            <h2>Annual Alumni Reunion</h2>
+            <p>📅 May 15, 2025 | 🕕 6:00 PM - 10:00 PM</p>
+            <p>📍 University Grand Hall</p>
+            <p>Enjoy a reunion night full of dinner, networking, and special guest speakers!</p>
+        </div>
+    </section>
+</body>
+
+</html>
