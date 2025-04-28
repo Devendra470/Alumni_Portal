@@ -28,7 +28,9 @@ def password_reset_page(request):
 
 # Module to display About Us page
 def about_us(request):
-    return render(request,'alumni/aboutus.html')
+    profile_pic = request.session.get('profile_pic')    
+    params={'profile_pic':profile_pic}
+    return render(request,'alumni/aboutus.html',params)
 
 # Module to display events page
 def events(request):
@@ -220,7 +222,8 @@ def myprofile(request):
             'linkedin_url':'',
             'github_url':'',
             'bio':'',
-            'profile_url':user.profile_pic.url if user.profile_pic else None
+            'profile_url':user.profile_pic.url if user.profile_pic else None,
+            'username':user.username
             }
     return render(request,'alumni/studentprofile.html',params)
 
@@ -244,6 +247,6 @@ def profileupdate(request):
         user.bio=request.POST.get('bio')
         user.save()
         request.session['profile_pic']=user.profile_pic.url if user.profile_pic.url else None
-        return render(request,'alumni/studentprofile.html')
+        return redirect('myprofile')
     else:
         return HttpResponse("404 Not Allowed")

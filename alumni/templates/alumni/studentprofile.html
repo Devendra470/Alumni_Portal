@@ -16,8 +16,7 @@
 
 <body>
   <header style="background-color: #303030">
-    <h1><i class="fa-solid fa-graduation-cap" style="color: white; "></i>Alumni Connect</h1>
-    <nav>
+    <a href="/" style="text-decoration: none;"><h1><i class="fa-solid fa-graduation-cap" style="color: white; "></i>Alumni Connect</h1></a>    <nav>
       <a href="/">Home</a>
       <a href="https://ggits.org/">GGITS</a>
       <a href="{% url 'events' %}">Events</a>
@@ -63,7 +62,7 @@
       <div class="form-grid">
         <div class="form-group">
           <label>Username</label>
-          <input type="text" placeholder="username" name="username">
+          <input type="text" placeholder="username" name="username" value="{{ username }}">
         </div>
         <div class="form-group">
           <label>Year of Graduation</label>

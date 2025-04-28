@@ -7,14 +7,33 @@
   <title>Mission & Values</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="{% static 'aboutus.css' %}" />
+  <script src="{%static 'js/profile.js' %}"></script>
+
 </head>
 <header style="background-color: #303030">
-  <h1><i class="fa-solid fa-graduation-cap" style="color: white; "></i>Alumni Connect</h1>
+  <a href="/" style="text-decoration: none;"><h1><i class="fa-solid fa-graduation-cap" style="color: white; "></i>Alumni Connect</h1></a>
   <nav>
+    <a href="/">Home</a>
     <a href="https://ggits.org/">GGITS</a>
     <a href="{% url 'events' %}">Events</a>
     <a href="{% url 'about_us' %}">About Us</a>
-    <a href="signin">Sign In</a>
+    {% if request.session.user_id %}
+      {% if profile_pic %}
+      <label for="dropdown-toggle"><img src="{{ request.session.profile_pic }}" alt="profile"
+          class="profile-pic" /></label>
+      {% else %}
+      <div class="profile-placeholder">
+        {{ request.session.name|slice:":1"|upper }}
+      </div>
+      {% endif %}
+      <div class="dropdown-menu">
+        <a href="{% url 'myprofile' %}">My Profile</a>
+        <a href="{% url 'myprofile' %}">Edit Profile</a>
+        <a href="{% url 'logout' %}">Logout</a>
+      </div>
+      {% else %}
+      <a href="{% url 'signin' %}">Sign In</a>
+      {%endif %}
   </nav>
 </header>
 <body>
@@ -33,11 +52,11 @@
         with each other and give back to their alma mater.
       </p>
       <p>
-        GGITS collaborates with global and national academies, including Cisco, Oracle, Microsoft, AWS, LinkedIn, NPTEL, IIT Spoken tutorials, and IBM. It excels in Central Region placements, with 800+ placements for the 2021 batch, including 600+ students from 2018 – 2022 batch. Major recruiters include TCS, Wipro, Tech. Mahindra, Infosys, Amdocs, Persistent, Reliance Jio, Essar Group, ETA Engg. Ltd., Tata Technologies, and Mphasis.>
+        GGITS collaborates with global and national academies, including Cisco, Oracle, Microsoft, AWS, LinkedIn, NPTEL, IIT Spoken tutorials, and IBM. It excels in Central Region placements, with 800+ placements for the 2021 batch, including 600+ students from 2018 – 2022 batch. Major recruiters include TCS, Wipro, Tech. Mahindra, Infosys, Amdocs, Persistent, Reliance Jio, Essar Group, ETA Engg. Ltd., Tata Technologies, and Mphasis.
       </p>
       <div class="buttons">
-        <a href="#" class="btn primary">Join the network</a>
-        <a href="#" class="btn outline">Sign in</a>
+        <a href="{% url 'joinnetwork' %}" class="btn primary">Join the network</a>
+        <a href="{% url 'signin' %}" class="btn outline">Sign in</a>
       </div>
     </div>
     <div class="values">
