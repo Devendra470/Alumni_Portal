@@ -18,6 +18,15 @@
   <header style="background-color: #303030">
     <a href="/" style="text-decoration: none;"><h1><i class="fa-solid fa-graduation-cap" style="color: white; "></i>Alumni Connect</h1></a>
     <nav>
+      {% if request.session.user_id %}
+        {%if request.session.role == 'Alumni'%}
+          <a href="{% url 'alumni' %}">Home</a>
+        {% elif request.session.role == 'Student' %}
+          <a href="{% url 'student' %}">Home</a>
+        {% else %}
+          <a href="#">Home</a>
+        {% endif %}
+      {% endif %}
       <a href="https://ggits.org/">GGITS</a>
       <a href="{% url 'events' %}">Events</a>
       <a href="{% url 'about_us' %}">About Us</a>

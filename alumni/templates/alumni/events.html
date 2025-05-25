@@ -16,11 +16,13 @@
 
 <body>
     <header style="background-color: #303030">
-        <a href="/" style="text-decoration: none;"><h1><i class="fa-solid fa-graduation-cap" style="color: white; "></i>Alumni Connect</h1></a>
+        <a href="/" style="text-decoration: none;">
+            <h1><i class="fa-solid fa-graduation-cap" style="color: white; "></i>Alumni Connect</h1>
+        </a>
         <nav>
             <a href="/">Home</a>
             <a href="https://ggits.org/">GGITS</a>
-            <a href="#">Events</a>
+            <a href="{% url 'events' %}">Events</a>
             <a href="{% url 'about_us' %}">About Us</a>
             {% if request.session.user_id %}
             {% if profile_pic %}
@@ -44,48 +46,26 @@
     </header>
 
     <section class="events">
+        {% for event in events %}
         <div class="event-card reunion">
-            <h2>Annual Alumni Reunion</h2>
-            <p>📅 May 15, 2025 | 🕕 6:00 PM - 10:00 PM</p>
-            <p>📍 University Grand Hall</p>
-            <p>Enjoy a reunion night full of dinner, networking, and special guest speakers!</p>
+            <h2>{{ event.title }}</h2>
+            <p>📅 {{ event.date }} | 🕕 {{ event.time }}</p>
+            <p>📍 {{ event.location }}</p>
+            <p>{{ event.description }}</p>
         </div>
-
-        <div class="event-card networking">
-            <h2>Career Networking Mixer</h2>
-            <p>📅 June 5, 2025 | 🕖 7:00 PM - 9:00 PM</p>
-            <p>📍 Downtown Conference Center</p>
-            <p>Meet and connect with fellow alumni from your industry for networking opportunities.</p>
-        </div>
-
-        <div class="event-card social">
-            <h2>Homecoming Weekend</h2>
-            <p>📅 October 10-12, 2025 | 🕰 Various Times</p>
-            <p>📍 University Campus</p>
-            <p>Enjoy football games, campus tours, and department open houses at the alumni event!</p>
-        </div>
-
-        <div class="event-card networking">
-            <h2>Career Networking Mixer</h2>
-            <p>📅 June 5, 2025 | 🕖 7:00 PM - 9:00 PM</p>
-            <p>📍 Downtown Conference Center</p>
-            <p>Meet and connect with fellow alumni from your industry for networking opportunities.</p>
-        </div>
-
-        <div class="event-card social">
-            <h2>Homecoming Weekend</h2>
-            <p>📅 October 10-12, 2025 | 🕰 Various Times</p>
-            <p>📍 University Campus</p>
-            <p>Enjoy football games, campus tours, and department open houses at the alumni event!</p>
-        </div>
-
-        <div class="event-card reunion">
-            <h2>Annual Alumni Reunion</h2>
-            <p>📅 May 15, 2025 | 🕕 6:00 PM - 10:00 PM</p>
-            <p>📍 University Grand Hall</p>
-            <p>Enjoy a reunion night full of dinner, networking, and special guest speakers!</p>
-        </div>
+        {% empty %}
+        <p> No Upcoming Events </p>
+        {% endfor %}
     </section>
+    {% if request.session.role == "Alumni" %}
+    <footer class="propose-event-footer">
+        <a href="{% url 'propose_event' %}" class="propose-event-button">
+            🎉 Reignite Connections — Propose an Alumni Event!
+        </a>
+    </footer>
+    {% endif %}
+
+
 </body>
 
 </html>

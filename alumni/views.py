@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
-from .models import User
+from .models import User,Events
 from django.contrib.auth.hashers import make_password,check_password
 import random
 from django.core.mail import EmailMessage
@@ -34,9 +34,27 @@ def about_us(request):
 
 # Module to display events page
 def events(request):
-    profile_pic = request.session.get('profile_pic')    
-    params={'profile_pic':profile_pic}
+    profile_pic = request.session.get('profile_pic')  
+    events=Events.objects.filter(is_active=True).order_by("date").values("title","description","date","time","location")  
+    params={'profile_pic':profile_pic,'events':events}
     return render(request,'alumni/events.html',params)
+
+# Module for displaying Propose Event Page
+def propose_event(request):
+    profile_pic=request.session.get('profile_pic')
+    return render(request,'alumni/propose_event.html',{'profile_pic':profile_pic})
+
+# Module for Displaying Internship Page
+def internship(request):
+    return HttpResponse("This is Internship Page")
+
+# Module for Diplaying Scholarship Page
+def scholarships(request):
+    return HttpResponse("This is Scholarship Page")
+
+# Module for diplaying Job Page
+def jobs(request):
+    return HttpResponse("This is job Page")
 
 # Module to Signup
 def create_account(request):

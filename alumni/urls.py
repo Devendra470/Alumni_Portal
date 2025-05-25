@@ -22,6 +22,10 @@ urlpatterns = [
     path('myprofile',views.myprofile,name='myprofile'),
     path('profileupdate',views.profileupdate,name='profileupdate'),
     path('events',views.events,name='events'),
+    path('propose_event',views.propose_event,name='propose_event'),
+    path('internship',views.internship,name='internship'),
+    path('jobs',views.jobs,name='jobs'),
+    path('scholarships',views.scholarships,name='scholarships'),
     
 ]
 if(settings.DEBUG):

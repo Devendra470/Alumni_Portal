@@ -158,3 +158,38 @@ nav a:hover {
     font-size: 14px;
     margin: 5px 0;
 }
+
+/* Ensure full height layout */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.events {
+    flex: 1;
+}
+
+/* Footer container */
+.propose-event-footer {
+    background-color: #222;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+/* Button style */
+.propose-event-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 24px;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+}
+
+.propose-event-button:hover {
+    background-color: #45a049;
+}
+
