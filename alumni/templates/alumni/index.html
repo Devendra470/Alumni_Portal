@@ -56,10 +56,12 @@
         <h1 class="display-4 fw-bold">Welcome to GYAN GANGA GROUP OF INSTITUTIONS Alumni Network</h1>
         <p>Connect with fellow alumni, students, and faculty. Share experiences, opportunities, and stay updated with
           college news.</p>
+        {% if not request.session.user_id %}
         <div class="buttons">
           <a href="{% url 'joinnetwork' %}" class="btn primary">Join the Network →</a>
           <a href="{% url 'signin' %}" class="btn secondary">Sign In</a>
         </div>
+        {% endif %}
       </div>
     </div>
   </section>
