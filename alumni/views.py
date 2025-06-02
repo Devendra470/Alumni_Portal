@@ -18,13 +18,13 @@ def homepage(request):
 def signup(request):
     return render(request,'alumni/joinnetwork.html')
 
-# Displaying SIgnin Page
+# Displaying Signin Page
 def signin(request):
     return render(request,'alumni/signin.html')
 
 # Module to display password change page
-def password_reset_page(request):
-    return render(request,'alumni/password_reset.html')
+def password_reset(request):
+    return render(request,'alumni/password_reset.html',{'step':1})
 
 # Module to display About Us page
 def about_us(request):
@@ -91,7 +91,7 @@ def create_account(request):
     request.session['otp']=otp
     
     if (User.objects.filter(email=email).exists()): #Checking if email already exist
-        return render(request,'alumni/joinnetwork.html',{'flag':True})
+        return render(request,'alumni/joinnetwork.html',{'error':'Email ID already exist'})
         
     # If email id does not exist then send otp
     else:
@@ -111,7 +111,7 @@ def signindata(request):
         logged_user=User.objects.get(email=entered_email)
         role=logged_user.role
     except User.DoesNotExist:
-        return render(request,'alumni/signin.html',{'flag':True}) #If not Found functon returns
+        return render(request,'alumni/signin.html',{'error':'Invalid User ID or Password'}) #If not Found functon returns
     firstname=logged_user.first_name
     # If function does not return then email is found now check for password
     if(check_password(password,logged_user.password)):
@@ -125,7 +125,7 @@ def signindata(request):
         elif(role=='Student'):
             return render(request,'alumni/student.html',{'name':firstname})
     else:
-        return render(request,'alumni/signin.html',{'flag':True})
+        return render(request,'alumni/signin.html',{'error':'Invalid User Id or Password'})
  
     
 #Module to Logout
@@ -145,7 +145,7 @@ def verify_otp(request):
             signup_data=request.session.get('user_data')
             Create_user(signup_data)
             request.session.pop('otp',None)
-            return render(request,'alumni/signin.html',{'created':True,'flag':False})
+            return render(request,'alumni/signin.html',{'created':True,'error':False})
         # IF Incorrect Otp is entered
         else:   
             return render(request,'alumni/otp_verification.html',{'Invalid_Otp':True})
@@ -182,16 +182,49 @@ def Create_user(signup_data):
                         graduation_year=signup_data['gradyear'],
                         degree=signup_data['degree'])
 # Module to Change Password
-def passoword_reset(request):
-    new_password=request.POST.get('newpassword')
-    confirm_password=request.POST.get('confirmpassword')
-    print(new_password)
-    print(confirm_password)
-    if(new_password==confirm_password):
-          pass
+def password_reset_page(request):
+    if request.method=='POST':
+        email=request.POST.get('email')
+        try:
+            user=User.objects.get(email=email)
+        except User.DoesNotExist:
+            return render(request,'alumni/password_reset.html',{'step':1,'error':'Invalid Email Id.'})
+        otp=''.join([str(random.randint(0,9)) for _ in range(6)]) 
+        request.session['password_reset_otp']=otp
+        request.session['password_reset_email']=email
+        send_otp(email,otp,None)
+        return render(request,'alumni/password_reset.html',{'step':2})
+    return render (request,'alumni/password_reset.html',{'step':1})
+
+def verify_password_otp(request):
+    entered_otp=request.POST.get('otp')
+    if(entered_otp==request.session.get('password_reset_otp')):
+        return render(request,'alumni/password_reset.html',{'step':3})
     else:
-         return render(request,'alumni/password_reset.html',{'flag': True})
-     
+        return render(request,'alumni/password_reset.html',{'step':2,'error':'Invalid OTP'})
+
+def new_password(request):
+    new_password=request.POST.get('new_password')
+    confirm_password=request.POST.get('confirm_password')
+    if(new_password==confirm_password):
+        email=request.session.get('password_reset_email')
+        if not email:
+            return redirect('password_reset')
+        user=User.objects.get(email=email)
+        user.password=make_password(new_password)
+        user.save()
+        request.session.pop('password_reset_otp')
+        request.session.pop('password_reset_email')
+        return render(request,'alumni/password_reset.html',{'step':4})
+    else:
+        return render(request,'alumni/password_reset.html',{'step':3,'error':"Password Does not Match"})
+
+
+        
+
+
+
+
 # Module to display blog page
 def blog(request):
     if(request.session.get('user_id')==None):

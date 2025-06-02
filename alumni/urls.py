@@ -13,8 +13,14 @@ urlpatterns = [
     path('logout',views.logout,name='logout'),
     path('verify_otp',views.verify_otp,name="verify_otp"),
     path('resend_otp',views.resend_otp,name='resend_otp'),
-    path('password_reset',views.password_reset_page,name='password_reset'),
-    path('change_password',views.passoword_reset,name='change_password'),
+
+    path('password_reset',views.password_reset,name='password_reset'),
+    path('password_reset_page',views.password_reset_page,name='password_reset_page'),
+    path('verify_password_otp',views.verify_password_otp,name='verify_password_otp'),
+    path('new_password',views.new_password,name='new_password'),
+    path('change_password',views.password_reset,name='change_password'),
+
+    
     path('blog',views.blog,name='blog'),
     path('about_us',views.about_us,name='about_us'),
     path('alumni',views.alumni,name='alumni'),

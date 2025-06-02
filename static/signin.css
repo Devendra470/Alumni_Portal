@@ -102,3 +102,19 @@ button:hover {
 .register-link a:hover {
     text-decoration: underline;
 }
+.error {
+      background-color: #ff4c4c;
+      color: white;
+      border-radius: 6px;
+      padding: 10px;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+.success {
+      background-color: #4CAF50;
+      color: white;
+      border-radius: 6px;
+      padding: 10px;
+      margin-bottom: 15px;
+      text-align: center;
+    }

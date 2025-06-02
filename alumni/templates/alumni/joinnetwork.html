@@ -17,8 +17,8 @@
 
     <div class="form-container">
       <div style="background-color: rgb(226, 25, 25); text-align: center; border-radius: 50px 50px ; color: white;">
-        {% if flag %}
-          <div class="alert alert-failure">Email ID already exists</div>
+        {% if error %}
+          <div class="error">{{ error }}</div>
         {% endif %}
       </div>
       <h1>Create an Account</h1>
