@@ -36,12 +36,13 @@ class ProposedEvents(models.Model):
     submitted_by=models.ForeignKey(User,on_delete=models.CASCADE)
     def __str__(self):
         return f"{self.title}-(proposed)"
-        
 class Blog(models.Model):
+    id=models.AutoField(primary_key=True)
     title=models.CharField(max_length=200)
-    content=models.TextField()
+    content=models.TextField(max_length=5000)
     author=models.ForeignKey(User,on_delete=models.SET_NULL,null=True)
-    created_at=models.DateTimeField(auto_now_add=True)
+    publish_date=models.DateTimeField(auto_now_add=True)
+    thumbnail=models.ImageField(upload_to='media/blog-thumbnail')
     def __str__(self):
         return self.title
     
